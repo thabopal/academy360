@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-yvw08x6sry3!pg0)55)rgfzl5w-@8dmt-s@#0a=k=)d&!bvj^o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost:8000','https://academy360.co.za/','http://academy360.co.za/','http://www.academy360.co.za/','https://www.academy360.co.za/']
+ALLOWED_HOSTS = ['localhost','localhost:8000','https://academy360.co.za/','http://academy360.co.za/','http://www.academy360.co.za/','https://www.academy360.co.za/']
 
 
 # Application definition
@@ -78,10 +78,15 @@ WSGI_APPLICATION = 'pr_academy360.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'DB_Academy360',  # Replace with your PostgreSQL database name
+        'USER': 'root',  # Replace with your PostgreSQL username
+        'PASSWORD': 'Monday@01',  # Replace with your PostgreSQL password
+        'HOST': 'localhost',  # Typically 'localhost' or the IP of your PostgreSQL server
+        'PORT': '5432',  # Usually 5432 for PostgreSQL
     }
 }
+
 
 
 # Password validation
