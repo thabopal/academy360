@@ -1,0 +1,1671 @@
+{% extends "main_base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+        <!-- Card 1: School Information -->
+        <div class="col">
+            <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#schoolInfoModal">
+                <div class="card-body">
+                    <i class="fas fa-school card-icon"></i>
+                    <h5 class="card-title mt-3">School Information</h5>
+                </div>
+            </div>
+        </div>
+        <!-- Card 2: Learner/Parent Information -->
+        <div class="col">
+            <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#learnerParentInfoModal">
+                <div class="card-body">
+                    <i class="fas fa-users card-icon"></i>
+                    <h5 class="card-title mt-3">Learner/Parent Information</h5>
+                </div>
+            </div>
+        </div>
+        <!-- Card 3: School Subjects -->
+        <div class="col">
+            <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#schoolSubjectsModal">
+                <div class="card-body">
+                    <i class="fas fa-book-open card-icon"></i>
+                    <h5 class="card-title mt-3">School Subjects</h5>
+                </div>
+            </div>
+        </div>
+        <!-- Card 4: Educator Information -->
+        <div class="col">
+            <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#educatorInformationModal">
+                <div class="card-body">
+                    <i class="fas fa-chalkboard-teacher card-icon"></i>
+                    <h5 class="card-title mt-3">Educator Information</h5>
+                </div>
+            </div>
+        </div>
+        <!-- Card 5: Timetabling Assistant -->
+        <div class="col">
+            <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#timetablingAssistantModal">
+                <div class="card-body">
+                    <i class="fas fa-calendar-alt card-icon"></i>
+                    <h5 class="card-title mt-3">Timetabling Assistant</h5>
+                </div>
+            </div>
+        </div>
+        <!-- Card 6: Class Management -->
+        <div class="col">
+            <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#classManagementModal">
+                <div class="card-body">
+                    <i class="fas fa-chalkboard card-icon"></i>
+                    <h5 class="card-title mt-3">Class Management</h5>
+                </div>
+            </div>
+        </div>
+        <!-- Card 7: School Hostels -->
+        <div class="col">
+            <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#hostelManagementModal">
+                <div class="card-body">
+                    <i class="fas fa-hotel card-icon"></i>
+                    <h5 class="card-title mt-3">School Hostels</h5>
+                </div>
+            </div>
+        </div>
+        <!-- Card 8: Manage Extracurriculars -->
+        <div class="col">
+            <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#createExtraCurricularModal">
+                <div class="card-body">
+                    <i class="fas fa-running card-icon"></i>
+                    <h5 class="card-title mt-3">Manage Extracurriculars</h5>
+                </div>
+            </div>
+        </div>
+        <!-- Card 9: View Learners -->
+        <div class="col">
+            <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#learnerManagementModal">
+                <div class="card-body">
+                    <i class="fas fa-child card-icon"></i>
+                    <h5 class="card-title mt-3">View Learners</h5>
+                </div>
+            </div>
+        </div>
+        <!-- Card 10: School/Educator & Staff Terms -->
+        <div class="col">
+            <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#termsManagementModal">
+                <div class="card-body">
+                    <i class="fas fa-calendar-check card-icon"></i>
+                    <h5 class="card-title mt-3">School/Educator & Staff Terms</h5>
+                </div>
+            </div>
+        </div>
+        <!-- Card 11: Learner Attendance -->
+        <div class="col">
+            <div class="card text-center shadow">
+                <div class="card-body">
+                    <i class="fas fa-user-check card-icon"></i>
+                    <h5 class="card-title mt-3">Learner Attendance</h5>
+                </div>
+            </div>
+        </div>
+        <!-- Card 12: Feeder Schools -->
+        <div class="col">
+            <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#feederSchoolsModal">
+                <div class="card-body">
+                    <i class="fas fa-building card-icon"></i>
+                    <h5 class="card-title mt-3">Feeder Schools</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal Pop ups-->
+<!-- School Information Modal -->
+<div class="modal fade bounce" id="schoolInfoModal" tabindex="-1" aria-labelledby="schoolInfoModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="schoolInfoModalLabel">School Information Wizard</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Nav Tabs for Wizard Form -->
+                <ul class="nav nav-tabs" id="wizardTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="contact-details-tab" data-bs-toggle="tab" href="#contact-details"
+                            role="tab">Contact Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="survey-details1-tab" data-bs-toggle="tab" href="#survey-details1"
+                            role="tab">Survey Details 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="survey-details2-tab" data-bs-toggle="tab" href="#survey-details2"
+                            role="tab">Survey Details 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="sgb-status-tab" data-bs-toggle="tab" href="#sgb-status" role="tab">SGB
+                            Status</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="twinning-details-tab" data-bs-toggle="tab" href="#twinning-details"
+                            role="tab">Twinning Details</a>
+                    </li>
+                </ul>
+
+                <!-- Tab Content for the Wizard -->
+                <div class="tab-content mt-3" id="wizardTabContent">
+                    <!-- Contact Details Tab -->
+                    <div class="tab-pane fade show active" id="contact-details" role="tabpanel"
+                        aria-labelledby="contact-details-tab">
+                        <form>
+                            <div class="mb-3">
+                                <label for="schoolName" class="form-label">School Name</label>
+                                <input type="text" class="form-control" id="schoolName" placeholder="Enter school name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="schoolAddress" class="form-label">School Address</label>
+                                <input type="text" class="form-control" id="schoolAddress"
+                                    placeholder="Enter school address">
+                            </div>
+                            <div class="mb-3">
+                                <label for="schoolPhone" class="form-label">School Phone</label>
+                                <input type="text" class="form-control" id="schoolPhone"
+                                    placeholder="Enter phone number">
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Survey Details 1 Tab -->
+                    <div class="tab-pane fade" id="survey-details1" role="tabpanel"
+                        aria-labelledby="survey-details1-tab">
+                        <form>
+                            <div class="mb-3">
+                                <label for="enrollmentCount" class="form-label">Enrollment Count</label>
+                                <input type="number" class="form-control" id="enrollmentCount"
+                                    placeholder="Enter enrollment count">
+                            </div>
+                            <div class="mb-3">
+                                <label for="numEducators" class="form-label">Number of Educators</label>
+                                <input type="number" class="form-control" id="numEducators"
+                                    placeholder="Enter number of educators">
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Survey Details 2 Tab -->
+                    <div class="tab-pane fade" id="survey-details2" role="tabpanel"
+                        aria-labelledby="survey-details2-tab">
+                        <form>
+                            <div class="mb-3">
+                                <label for="classrooms" class="form-label">Number of Classrooms</label>
+                                <input type="number" class="form-control" id="classrooms"
+                                    placeholder="Enter number of classrooms">
+                            </div>
+                            <div class="mb-3">
+                                <label for="avgClassSize" class="form-label">Average Class Size</label>
+                                <input type="number" class="form-control" id="avgClassSize"
+                                    placeholder="Enter average class size">
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- SGB Status Tab -->
+                    <div class="tab-pane fade" id="sgb-status" role="tabpanel" aria-labelledby="sgb-status-tab">
+                        <form>
+                            <div class="mb-3">
+                                <label for="sgbEstablished" class="form-label">Is the SGB Established?</label>
+                                <select class="form-select" id="sgbEstablished">
+                                    <option selected>Choose...</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="sgbMembers" class="form-label">Number of SGB Members</label>
+                                <input type="number" class="form-control" id="sgbMembers"
+                                    placeholder="Enter number of SGB members">
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Twinning Details Tab -->
+                    <div class="tab-pane fade" id="twinning-details" role="tabpanel"
+                        aria-labelledby="twinning-details-tab">
+                        <form>
+                            <div class="mb-3">
+                                <label for="twinningSchool" class="form-label">Twinning School</label>
+                                <input type="text" class="form-control" id="twinningSchool"
+                                    placeholder="Enter twinning school name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="twinningStatus" class="form-label">Twinning Status</label>
+                                <select class="form-select" id="twinningStatus">
+                                    <option selected>Choose...</option>
+                                    <option value="active">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Learner/Parent Information Modal -->
+<div class="modal fade bounce" id="learnerParentInfoModal" tabindex="-1" aria-labelledby="learnerParentInfoModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="learnerParentInfoModalLabel">Learner/Parent Information Wizard</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Nav Tabs for Wizard Form -->
+                <ul class="nav nav-tabs" id="learnerWizardTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="parent-info-tab" data-bs-toggle="tab" href="#parent-info"
+                            role="tab">Parent Information</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="learner-info-tab" data-bs-toggle="tab" href="#learner-info"
+                            role="tab">Learner Information</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="health-details-tab" data-bs-toggle="tab" href="#health-details"
+                            role="tab">Health Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="emergency-contacts-tab" data-bs-toggle="tab" href="#emergency-contacts"
+                            role="tab">Emergency Contacts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="additional-notes-tab" data-bs-toggle="tab" href="#additional-notes"
+                            role="tab">Additional Notes</a>
+                    </li>
+                </ul>
+
+                <!-- Tab Content for the Wizard -->
+                <div class="tab-content mt-3" id="learnerWizardTabContent">
+                    <!-- Parent Information Tab -->
+                    <div class="tab-pane fade show active" id="parent-info" role="tabpanel"
+                        aria-labelledby="parent-info-tab">
+                        <form>
+                            <div class="mb-3">
+                                <label for="parentName" class="form-label">Parent/Guardian Name</label>
+                                <input type="text" class="form-control" id="parentName"
+                                    placeholder="Enter parent/guardian name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="parentPhone" class="form-label">Phone Number</label>
+                                <input type="text" class="form-control" id="parentPhone"
+                                    placeholder="Enter phone number">
+                            </div>
+                            <div class="mb-3">
+                                <label for="parentEmail" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="parentEmail" placeholder="Enter email">
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Learner Information Tab -->
+                    <div class="tab-pane fade" id="learner-info" role="tabpanel" aria-labelledby="learner-info-tab">
+                        <form>
+                            <div class="mb-3">
+                                <label for="learnerName" class="form-label">Learner Name</label>
+                                <input type="text" class="form-control" id="learnerName"
+                                    placeholder="Enter learner name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="learnerGrade" class="form-label">Grade</label>
+                                <input type="text" class="form-control" id="learnerGrade" placeholder="Enter grade">
+                            </div>
+                            <div class="mb-3">
+                                <label for="learnerDOB" class="form-label">Date of Birth</label>
+                                <input type="date" class="form-control" id="learnerDOB">
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Health Details Tab -->
+                    <div class="tab-pane fade" id="health-details" role="tabpanel" aria-labelledby="health-details-tab">
+                        <form>
+                            <div class="mb-3">
+                                <label for="allergies" class="form-label">Allergies</label>
+                                <input type="text" class="form-control" id="allergies"
+                                    placeholder="Enter any known allergies">
+                            </div>
+                            <div class="mb-3">
+                                <label for="medicalConditions" class="form-label">Medical Conditions</label>
+                                <input type="text" class="form-control" id="medicalConditions"
+                                    placeholder="Enter medical conditions">
+                            </div>
+                            <div class="mb-3">
+                                <label for="doctorName" class="form-label">Doctor's Name</label>
+                                <input type="text" class="form-control" id="doctorName"
+                                    placeholder="Enter doctor's name">
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Emergency Contacts Tab -->
+                    <div class="tab-pane fade" id="emergency-contacts" role="tabpanel"
+                        aria-labelledby="emergency-contacts-tab">
+                        <form>
+                            <div class="mb-3">
+                                <label for="emergencyContactName" class="form-label">Emergency Contact Name</label>
+                                <input type="text" class="form-control" id="emergencyContactName"
+                                    placeholder="Enter emergency contact name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="emergencyContactPhone" class="form-label">Emergency Contact Phone</label>
+                                <input type="text" class="form-control" id="emergencyContactPhone"
+                                    placeholder="Enter emergency contact phone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="emergencyContactRelation" class="form-label">Relationship to Learner</label>
+                                <input type="text" class="form-control" id="emergencyContactRelation"
+                                    placeholder="Enter relationship">
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Additional Notes Tab -->
+                    <div class="tab-pane fade" id="additional-notes" role="tabpanel"
+                        aria-labelledby="additional-notes-tab">
+                        <form>
+                            <div class="mb-3">
+                                <label for="notes" class="form-label">Additional Notes</label>
+                                <textarea class="form-control" id="notes" rows="3"
+                                    placeholder="Enter any additional information"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- School Subjects Modal -->
+<div class="modal fade bounce" id="schoolSubjectsModal" tabindex="-1" aria-labelledby="schoolSubjectsModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="schoolSubjectsModalLabel">School Subjects Wizard</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Nav Tabs for Wizard Form -->
+                <ul class="nav nav-tabs" id="schoolSubjectsWizardTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="offered-subjects-tab" data-bs-toggle="tab"
+                            href="#offered-subjects" role="tab">Offered by the School</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="master-list-tab" data-bs-toggle="tab" href="#master-list"
+                            role="tab">Master List (Not Selected)</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="archived-subjects-tab" data-bs-toggle="tab" href="#archived-subjects"
+                            role="tab">Archived</a>
+                    </li>
+                </ul>
+
+                <!-- Tab Content for the Wizard -->
+                <div class="tab-content mt-3" id="schoolSubjectsWizardTabContent">
+                    <!-- Offered by the School Tab -->
+                    <div class="tab-pane fade show active" id="offered-subjects" role="tabpanel"
+                        aria-labelledby="offered-subjects-tab">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Grade</th>
+                                    <th>National Code</th>
+                                    <th>School Ref</th>
+                                    <th>Language</th>
+                                    <th>Comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Mathematics</td>
+                                    <td>10</td>
+                                    <td>12345</td>
+                                    <td>ABC123</td>
+                                    <td>English</td>
+                                    <td>Core subject</td>
+                                </tr>
+                                <tr>
+                                    <td>Physical Science</td>
+                                    <td>11</td>
+                                    <td>67890</td>
+                                    <td>XYZ456</td>
+                                    <td>English</td>
+                                    <td>Elective subject</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Master List (Not Selected) Tab -->
+                    <div class="tab-pane fade" id="master-list" role="tabpanel" aria-labelledby="master-list-tab">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Grade</th>
+                                    <th>National Code</th>
+                                    <th>School Ref</th>
+                                    <th>Language</th>
+                                    <th>Comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Geography</td>
+                                    <td>10</td>
+                                    <td>11223</td>
+                                    <td>DEF789</td>
+                                    <td>Afrikaans</td>
+                                    <td>Available, not yet selected</td>
+                                </tr>
+                                <tr>
+                                    <td>Life Sciences</td>
+                                    <td>11</td>
+                                    <td>33445</td>
+                                    <td>GHI101</td>
+                                    <td>English</td>
+                                    <td>Available, not yet selected</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Archived Tab -->
+                    <div class="tab-pane fade" id="archived-subjects" role="tabpanel"
+                        aria-labelledby="archived-subjects-tab">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Grade</th>
+                                    <th>National Code</th>
+                                    <th>School Ref</th>
+                                    <th>Language</th>
+                                    <th>Comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>History</td>
+                                    <td>12</td>
+                                    <td>99887</td>
+                                    <td>KLM202</td>
+                                    <td>English</td>
+                                    <td>Archived</td>
+                                </tr>
+                                <tr>
+                                    <td>Accounting</td>
+                                    <td>12</td>
+                                    <td>55678</td>
+                                    <td>NOP303</td>
+                                    <td>English</td>
+                                    <td>Archived</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Educator Information Modal -->
+<div class="modal fade bounce" id="educatorInformationModal" tabindex="-1"
+    aria-labelledby="educatorInformationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="educatorInformationModalLabel">Educator Information Wizard</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Nav Tabs for Wizard Form -->
+                <ul class="nav nav-tabs" id="educatorInformationWizardTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="personal-info-tab" data-bs-toggle="tab" href="#personal-info"
+                            role="tab">Personal Information</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="qualifications-tab" data-bs-toggle="tab" href="#qualifications"
+                            role="tab">Qualifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="subjects-taught-tab" data-bs-toggle="tab" href="#subjects-taught"
+                            role="tab">Subjects Taught</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="experience-tab" data-bs-toggle="tab" href="#experience"
+                            role="tab">Experience</a>
+                    </li>
+                </ul>
+
+                <!-- Tab Content for the Wizard -->
+                <div class="tab-content mt-3" id="educatorInformationWizardTabContent">
+                    <!-- Personal Information Tab -->
+                    <div class="tab-pane fade show active" id="personal-info" role="tabpanel"
+                        aria-labelledby="personal-info-tab">
+                        <form>
+                            <div class="mb-3">
+                                <label for="educator-name" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="educator-name"
+                                    placeholder="Enter educator's full name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="educator-id" class="form-label">ID Number</label>
+                                <input type="text" class="form-control" id="educator-id"
+                                    placeholder="Enter educator's ID number">
+                            </div>
+                            <div class="mb-3">
+                                <label for="educator-contact" class="form-label">Contact Number</label>
+                                <input type="tel" class="form-control" id="educator-contact"
+                                    placeholder="Enter contact number">
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Qualifications Tab -->
+                    <div class="tab-pane fade" id="qualifications" role="tabpanel" aria-labelledby="qualifications-tab">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Qualification</th>
+                                    <th>Institution</th>
+                                    <th>Year Obtained</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>B.Ed. in Mathematics</td>
+                                    <td>University of XYZ</td>
+                                    <td>2015</td>
+                                </tr>
+                                <tr>
+                                    <td>Postgraduate Diploma in Education</td>
+                                    <td>University of ABC</td>
+                                    <td>2018</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Subjects Taught Tab -->
+                    <div class="tab-pane fade" id="subjects-taught" role="tabpanel"
+                        aria-labelledby="subjects-taught-tab">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Grade</th>
+                                    <th>Years Taught</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Mathematics</td>
+                                    <td>10 - 12</td>
+                                    <td>6 Years</td>
+                                </tr>
+                                <tr>
+                                    <td>Physical Science</td>
+                                    <td>11 - 12</td>
+                                    <td>4 Years</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Experience Tab -->
+                    <div class="tab-pane fade" id="experience" role="tabpanel" aria-labelledby="experience-tab">
+                        <form>
+                            <div class="mb-3">
+                                <label for="experience-years" class="form-label">Years of Experience</label>
+                                <input type="number" class="form-control" id="experience-years"
+                                    placeholder="Enter years of experience">
+                            </div>
+                            <div class="mb-3">
+                                <label for="previous-schools" class="form-label">Previous Schools Worked At</label>
+                                <textarea class="form-control" id="previous-schools" rows="3"
+                                    placeholder="List previous schools"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Timetabling Assistant Modal -->
+<div class="modal fade bounce" id="timetablingAssistantModal" tabindex="-1"
+    aria-labelledby="timetablingAssistantModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="timetablingAssistantModalLabel">Timetabling Assistant - Wizard</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Nav Tabs for Wizard Form -->
+                <ul class="nav nav-tabs" id="timetablingWizardTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="grade-selection-tab" data-bs-toggle="tab" href="#grade-selection"
+                            role="tab">Select Grade</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="subject-selection-tab" data-bs-toggle="tab" href="#subject-selection"
+                            role="tab">Select Subjects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="constraints-tab" data-bs-toggle="tab" href="#constraints" role="tab">Set
+                            Constraints</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="review-tab" data-bs-toggle="tab" href="#review" role="tab">Review &
+                            Generate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="confirmation-tab" data-bs-toggle="tab" href="#confirmation"
+                            role="tab">Final Confirmation</a>
+                    </li>
+                </ul>
+
+                <!-- Tab Content for the Wizard -->
+                <div class="tab-content mt-3" id="timetablingWizardTabContent">
+                    <!-- Step 1: Select Grade -->
+                    <div class="tab-pane fade show active" id="grade-selection" role="tabpanel"
+                        aria-labelledby="grade-selection-tab">
+                        <form>
+                            <div class="mb-3">
+                                <label for="grade-select" class="form-label">Select Grade</label>
+                                <select class="form-select" id="grade-select">
+                                    <option value="8">Grade 8</option>
+                                    <option value="9">Grade 9</option>
+                                    <option value="10">Grade 10</option>
+                                    <option value="11">Grade 11</option>
+                                    <option value="12">Grade 12</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Step 2: Select Subjects -->
+                    <div class="tab-pane fade" id="subject-selection" role="tabpanel"
+                        aria-labelledby="subject-selection-tab">
+                        <form>
+                            <div class="mb-3">
+                                <label for="subject-select" class="form-label">Select Subjects</label>
+                                <select multiple class="form-select" id="subject-select">
+                                    <option value="math">Mathematics</option>
+                                    <option value="science">Physical Science</option>
+                                    <option value="biology">Life Science</option>
+                                    <option value="english">English Home Language</option>
+                                    <option value="geography">Geography</option>
+                                    <option value="history">History</option>
+                                    <option value="business">Business Studies</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Step 3: Set Constraints -->
+                    <div class="tab-pane fade" id="constraints" role="tabpanel" aria-labelledby="constraints-tab">
+                        <form>
+                            <div class="mb-3">
+                                <label for="teaching-hours" class="form-label">Maximum Teaching Hours per Day</label>
+                                <input type="number" class="form-control" id="teaching-hours"
+                                    placeholder="Enter max teaching hours">
+                            </div>
+                            <div class="mb-3">
+                                <label for="break-time" class="form-label">Break Time (in minutes)</label>
+                                <input type="number" class="form-control" id="break-time"
+                                    placeholder="Enter break time duration">
+                            </div>
+                            <div class="mb-3">
+                                <label for="unavailable-slots" class="form-label">Unavailable Time Slots</label>
+                                <input type="text" class="form-control" id="unavailable-slots"
+                                    placeholder="Enter unavailable slots (e.g., Monday 10-11 AM)">
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Step 4: Review & Generate -->
+                    <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
+                        <p>Please review the selected grade, subjects, and constraints. Once confirmed, click 'Generate'
+                            to create the timetable.</p>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Grade:</strong> <span id="review-grade">Grade 10</span>
+                            </li>
+                            <li class="list-group-item"><strong>Subjects:</strong> <span
+                                    id="review-subjects">Mathematics, Physical Science, English</span></li>
+                            <li class="list-group-item"><strong>Max Teaching Hours:</strong> <span id="review-hours">6
+                                    hours</span></li>
+                            <li class="list-group-item"><strong>Break Time:</strong> <span id="review-break">30
+                                    minutes</span></li>
+                            <li class="list-group-item"><strong>Unavailable Slots:</strong> <span
+                                    id="review-slots">Monday 10-11 AM</span></li>
+                        </ul>
+                        <button type="button" class="btn btn-primary mt-3" id="generateTimetable">Generate
+                            Timetable</button>
+                    </div>
+
+                    <!-- Step 5: Final Confirmation -->
+                    <div class="tab-pane fade" id="confirmation" role="tabpanel" aria-labelledby="confirmation-tab">
+                        <p>The timetable has been successfully generated. Please review it below:</p>
+                        <div id="generatedTimetable">
+                            <!-- Dynamically populated timetable will appear here -->
+                        </div>
+                        <button type="button" class="btn btn-success mt-3" id="confirmTimetable">Confirm & Save
+                            Timetable</button>
+                        <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Class Management Modal -->
+<div class="modal fade fadeInUp" id="classManagementModal" tabindex="-1" aria-labelledby="classManagementModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="classManagementModalLabel">Class Management</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Accordion for Grades -->
+                <div class="accordion" id="classManagementAccordion">
+                    <!-- Grade 8 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingGrade8">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseGrade8" aria-expanded="true" aria-controls="collapseGrade8">
+                                Grade 8
+                            </button>
+                        </h2>
+                        <div id="collapseGrade8" class="accordion-collapse collapse show"
+                            aria-labelledby="headingGrade8" data-bs-parent="#classManagementAccordion">
+                            <div class="accordion-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        8A
+                                        <button class="btn btn-danger btn-sm" onclick="deleteClass('8A')"><i
+                                                class="fas fa-trash"></i> Delete</button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        8B
+                                        <button class="btn btn-danger btn-sm" onclick="deleteClass('8B')"><i
+                                                class="fas fa-trash"></i> Delete</button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        8C
+                                        <button class="btn btn-danger btn-sm" onclick="deleteClass('8C')"><i
+                                                class="fas fa-trash"></i> Delete</button>
+                                    </li>
+                                </ul>
+                                <!-- Button to Add a New Class -->
+                                <button class="btn btn-success mt-3" data-bs-toggle="modal"
+                                    data-bs-target="#createClassModal" onclick="setGrade('8')">
+                                    <i class="fas fa-plus"></i> Add Class
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grade 9 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingGrade9">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseGrade9" aria-expanded="false" aria-controls="collapseGrade9">
+                                Grade 9
+                            </button>
+                        </h2>
+                        <div id="collapseGrade9" class="accordion-collapse collapse" aria-labelledby="headingGrade9"
+                            data-bs-parent="#classManagementAccordion">
+                            <div class="accordion-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        9A
+                                        <button class="btn btn-danger btn-sm" onclick="deleteClass('9A')"><i
+                                                class="fas fa-trash"></i> Delete</button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        9B
+                                        <button class="btn btn-danger btn-sm" onclick="deleteClass('9B')"><i
+                                                class="fas fa-trash"></i> Delete</button>
+                                    </li>
+                                </ul>
+                                <!-- Button to Add a New Class -->
+                                <button class="btn btn-success mt-3" data-bs-toggle="modal"
+                                    data-bs-target="#createClassModal" onclick="setGrade('9')">
+                                    <i class="fas fa-plus"></i> Add Class
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add similar sections for Grades 10, 11, and 12 -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Create Class Modal -->
+<div class="modal fade" id="createClassModal" tabindex="-1" aria-labelledby="createClassModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createClassModalLabel">Create New Class</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="createClassForm">
+                    <div class="mb-3">
+                        <label for="class-name" class="form-label">Class Name</label>
+                        <input type="text" class="form-control" id="class-name" placeholder="e.g. 8D">
+                    </div>
+                    <div class="mb-3">
+                        <label for="class-type" class="form-label">Class Type</label>
+                        <select class="form-select" id="class-type">
+                            <option value="state">State Class</option>
+                            <option value="sgb">SGB Class</option>
+                        </select>
+                    </div>
+                    <input type="hidden" id="class-grade" name="class-grade">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="createClass()">Create Class</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Hostel Management Modal -->
+<div class="modal fade" id="hostelManagementModal" tabindex="-1" aria-labelledby="hostelManagementModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="hostelManagementModalLabel">School Hostels</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Accordion for Hostels -->
+                <div class="accordion" id="hostelManagementAccordion">
+                    <!-- Example Hostel Item -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingHostel1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHostel1" aria-expanded="true" aria-controls="collapseHostel1">
+                                Hostel 1
+                            </button>
+                        </h2>
+                        <div id="collapseHostel1" class="accordion-collapse collapse show" aria-labelledby="headingHostel1" data-bs-parent="#hostelManagementAccordion">
+                            <div class="accordion-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <strong>Contact Person:</strong> John Doe
+                                    </li>
+                                    <li class="list-group-item">
+                                        <strong>Address:</strong> 123 Main St, Townsville
+                                    </li>
+                                    <li class="list-group-item">
+                                        <strong>Telephone:</strong> (123) 456-7890
+                                    </li>
+                                </ul>
+                                <!-- Button to Add a New Hostel -->
+                                <button class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#createHostelModal">
+                                    <i class="fas fa-plus"></i> Add Hostel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add similar sections for other hostels -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Create Hostel Modal -->
+<div class="modal fade" id="createHostelModal" tabindex="-1" aria-labelledby="createHostelModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createHostelModalLabel">Create New Hostel</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="createHostelForm">
+                    <div class="mb-3">
+                        <label for="hostel-name" class="form-label">Hostel Name</label>
+                        <input type="text" class="form-control" id="hostel-name" placeholder="e.g. Hostel A">
+                    </div>
+                    <div class="mb-3">
+                        <label for="contact-person" class="form-label">Contact Person</label>
+                        <input type="text" class="form-control" id="contact-person" placeholder="e.g. Jane Smith">
+                    </div>
+                    <div class="mb-3">
+                        <label for="hostel-address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="hostel-address" placeholder="e.g. 456 Elm St, Townsville">
+                    </div>
+                    <div class="mb-3">
+                        <label for="hostel-telephone" class="form-label">Telephone</label>
+                        <input type="text" class="form-control" id="hostel-telephone" placeholder="e.g. (987) 654-3210">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="resetHostelForm()">Clear</button>
+                <button type="button" class="btn btn-primary" onclick="createHostel()">Save</button>
+                <button type="button" class="btn btn-danger" onclick="deleteHostel()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Learner Management Modal -->
+<div class="modal fade" id="learnerManagementModal" tabindex="-1" aria-labelledby="learnerManagementModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="learnerManagementModalLabel">Learner Management</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Filters and Search -->
+                <div class="d-flex justify-content-between mb-3">
+                    <div class="d-flex">
+                        <div class="me-2">
+                            <label for="filter-grade" class="form-label">Grade</label>
+                            <select class="form-select" id="filter-grade">
+                                <option value="">All Grades</option>
+                                <!-- Add options for grades -->
+                                <option value="8">Grade 8</option>
+                                <option value="9">Grade 9</option>
+                                <option value="10">Grade 10</option>
+                                <option value="11">Grade 11</option>
+                                <option value="12">Grade 12</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="filter-class" class="form-label">Class</label>
+                            <select class="form-select" id="filter-class">
+                                <option value="">All Classes</option>
+                                <!-- Add options for classes -->
+                                <option value="8A">8A</option>
+                                <option value="8B">8B</option>
+                                <option value="9A">9A</option>
+                                <option value="9B">9B</option>
+                                <!-- Add more options as needed -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ms-2">
+                        <label for="search" class="form-label">Search</label>
+                        <input type="text" class="form-control" id="search" placeholder="Search by surname or ID">
+                    </div>
+                </div>
+
+                <!-- Learner Table -->
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Surname</th>
+                            <th>Name</th>
+                            <th>Admission Number</th>
+                            <th>Grade</th>
+                            <th>Class</th>
+                            <th>Gender</th>
+                            <th>ID Number</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="learner-table-body">
+                        <!-- Example Row -->
+                        <tr>
+                            <td>Smith</td>
+                            <td>John</td>
+                            <td>12345</td>
+                            <td>8</td>
+                            <td>8A</td>
+                            <td>Male</td>
+                            <td>6789012345</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm" onclick="viewLearner('12345')">View/Update</button>
+                                <button class="btn btn-secondary btn-sm" onclick="archiveLearner('12345')">Archive</button>
+                                <button class="btn btn-info btn-sm" onclick="maintainRCL('12345')">Maintain RCL</button>
+                                <button class="btn btn-warning btn-sm" onclick="viewDisciplinary('12345')">Disciplinary Record</button>
+                                <button class="btn btn-success btn-sm" onclick="viewSports('12345')">Sports & Extra Murals</button>
+                                <button class="btn btn-dark btn-sm" onclick="viewTransferForms('12345')">Provisional Transfer Forms</button>
+                            </td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+
+                <!-- Family Section -->
+                <div class="mt-3">
+                    <h6>Family Section</h6>
+                    <button class="btn btn-success me-2" onclick="addParent('12345')">Add Parent to Learner</button>
+                    <button class="btn btn-primary me-2" onclick="viewMainParent('12345')">View Main Parent Details</button>
+                    <button class="btn btn-secondary" onclick="viewFamily('12345')">View Family</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="addLearner()">Add New Learner</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- School Educator & Staff Terms Management Modal -->
+<div class="modal fade" id="termsManagementModal" tabindex="-1" aria-labelledby="termsManagementModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="termsManagementModalLabel">School Educator & Staff Terms Management</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Year Selection -->
+                <div class="mb-3">
+                    <label for="select-year" class="form-label">Select Year</label>
+                    <select class="form-select" id="select-year">
+                        <option value="">Select Year</option>
+                        <!-- Add options for years -->
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <!-- Add more years as needed -->
+                    </select>
+                </div>
+
+                <!-- Terms Table -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Term</th>
+                            <th colspan="2">School Terms</th>
+                            <th colspan="2">Educator Terms</th>
+                            <th colspan="2">Staff Terms</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>From Date</th>
+                            <th>To Date</th>
+                            <th>From Date</th>
+                            <th>To Date</th>
+                            <th>From Date</th>
+                            <th>To Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Term 1</td>
+                            <td><input type="date" class="form-control" id="school-term1-from"></td>
+                            <td><input type="date" class="form-control" id="school-term1-to"></td>
+                            <td><input type="date" class="form-control" id="educator-term1-from"></td>
+                            <td><input type="date" class="form-control" id="educator-term1-to"></td>
+                            <td><input type="date" class="form-control" id="staff-term1-from"></td>
+                            <td><input type="date" class="form-control" id="staff-term1-to"></td>
+                        </tr>
+                        <tr>
+                            <td>Term 2</td>
+                            <td><input type="date" class="form-control" id="school-term2-from"></td>
+                            <td><input type="date" class="form-control" id="school-term2-to"></td>
+                            <td><input type="date" class="form-control" id="educator-term2-from"></td>
+                            <td><input type="date" class="form-control" id="educator-term2-to"></td>
+                            <td><input type="date" class="form-control" id="staff-term2-from"></td>
+                            <td><input type="date" class="form-control" id="staff-term2-to"></td>
+                        </tr>
+                        <tr>
+                            <td>Term 3</td>
+                            <td><input type="date" class="form-control" id="school-term3-from"></td>
+                            <td><input type="date" class="form-control" id="school-term3-to"></td>
+                            <td><input type="date" class="form-control" id="educator-term3-from"></td>
+                            <td><input type="date" class="form-control" id="educator-term3-to"></td>
+                            <td><input type="date" class="form-control" id="staff-term3-from"></td>
+                            <td><input type="date" class="form-control" id="staff-term3-to"></td>
+                        </tr>
+                        <tr>
+                            <td>Term 4</td>
+                            <td><input type="date" class="form-control" id="school-term4-from"></td>
+                            <td><input type="date" class="form-control" id="school-term4-to"></td>
+                            <td><input type="date" class="form-control" id="educator-term4-from"></td>
+                            <td><input type="date" class="form-control" id="educator-term4-to"></td>
+                            <td><input type="date" class="form-control" id="staff-term4-from"></td>
+                            <td><input type="date" class="form-control" id="staff-term4-to"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="saveTerms()">Save</button>
+                <button type="button" class="btn btn-danger" onclick="deleteTerms()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Extra-Curricular Management Modal -->
+<div class="modal fade" id="extraCurricularModal" tabindex="-1" aria-labelledby="extraCurricularModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="extraCurricularModalLabel">Manage Extra-Curricular Activities</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Dropdown to Select Extra-Curricular -->
+                <div class="mb-3">
+                    <label for="select-extra-curricular" class="form-label">Select Extra-Curricular Type</label>
+                    <select class="form-select" id="select-extra-curricular" onchange="populateExtraCurricularGrid()">
+                        <option value="">Select Type</option>
+                        <!-- Add options for existing extra-curricular types here -->
+                        <option value="sports">Sports</option>
+                        <option value="arts">Arts</option>
+                        <option value="music">Music</option>
+                        <!-- Add more as needed -->
+                    </select>
+                </div>
+
+                <!-- Grid for Extra-Curricular Activities -->
+                <div class="mb-3">
+                    <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#createExtraCurricularModal">Create New Extra-Curricular</button>
+                    <button class="btn btn-warning mb-3" onclick="editSelectedExtraCurricular()">Edit Selected</button>
+                    <button class="btn btn-danger mb-3" onclick="deleteSelectedExtraCurricular()">Delete Selected</button>
+                    <button class="btn btn-primary mb-3" onclick="printExtraCurricularList()">Print List</button>
+                </div>
+                
+                <div id="extra-curricular-grid" class="row">
+                    <!-- Example of grid item -->
+                    <!-- The grid items will be dynamically populated based on the selected extra-curricular type -->
+                    <!-- Use JavaScript to generate and display these items -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Create/Edit Extra-Curricular Modal -->
+<div class="modal fade" id="createExtraCurricularModal" tabindex="-1" aria-labelledby="createExtraCurricularModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createExtraCurricularModalLabel">Create/Edit Extra-Curricular Type</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="extraCurricularForm">
+                    <div class="mb-3">
+                        <label for="extra-curricular-name" class="form-label">Extra-Curricular Name</label>
+                        <input type="text" class="form-control" id="extra-curricular-name" placeholder="e.g. Football Club">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="saveExtraCurricular()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Feeder Schools Management Modal -->
+<div class="modal fade" id="feederSchoolsModal" tabindex="-1" aria-labelledby="feederSchoolsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="feederSchoolsModalLabel">Manage Feeder Schools</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Feeder Schools Table -->
+                <div class="mb-3">
+                    <h6>Feeder Schools List</h6>
+                    <table class="table table-striped" id="feederSchoolsTable">
+                        <thead>
+                            <tr>
+                                <th>Name of School</th>
+                                <th>Telephone Number</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example rows (populate with actual data) -->
+                            <tr>
+                                <td>Sample School</td>
+                                <td>(123) 456-7890</td>
+                                <td>
+                                    <button class="btn btn-info btn-sm" onclick="viewFeederSchoolDetails('Sample School')">View</button>
+                                </td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Form to Add/Edit Feeder School -->
+                <div class="mb-3">
+                    <h6>Add/Edit Feeder School</h6>
+                    <form id="feederSchoolForm">
+                        <div class="mb-3">
+                            <label for="school-name" class="form-label">Name of School</label>
+                            <input type="text" class="form-control" id="school-name" placeholder="e.g. Sample School">
+                        </div>
+                        <div class="mb-3">
+                            <label for="principal" class="form-label">Principal</label>
+                            <input type="text" class="form-control" id="principal" placeholder="e.g. John Doe">
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="address" placeholder="e.g. 123 Main St">
+                        </div>
+                        <div class="mb-3">
+                            <label for="telephone" class="form-label">Telephone Number</label>
+                            <input type="text" class="form-control" id="telephone" placeholder="e.g. (123) 456-7890">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Buttons -->
+                <div class="mb-3">
+                    <button class="btn btn-secondary" onclick="clearFeederSchoolForm()">Clear</button>
+                    <button class="btn btn-danger" onclick="deleteFeederSchool()">Delete</button>
+                    <button class="btn btn-primary" onclick="printFeederSchools()">Print Feeder Schools</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // Function to clear the feeder school form
+function clearFeederSchoolForm() {
+    document.getElementById('feederSchoolForm').reset();
+}
+
+// Function to delete the selected feeder school (placeholder)
+function deleteFeederSchool() {
+    if (confirm('Are you sure you want to delete the selected feeder school?')) {
+        // Implement delete logic here (e.g., remove item from server)
+        alert('Delete functionality not implemented yet.');
+        // Optionally, remove the row from the table
+    }
+}
+
+// Function to print the list of feeder schools (placeholder)
+function printFeederSchools() {
+    // Implement print logic here
+    alert('Print functionality not implemented yet.');
+}
+
+// Function to view details of a selected feeder school (placeholder)
+function viewFeederSchoolDetails(schoolName) {
+    // Implement view logic (e.g., populate the form with selected school's details)
+    alert(`View details for feeder school: ${schoolName}`);
+}
+
+    // Function to populate the extra-curricular grid based on selection
+function populateExtraCurricularGrid() {
+    const selectedType = document.getElementById('select-extra-curricular').value;
+    const gridContainer = document.getElementById('extra-curricular-grid');
+
+    // Clear the grid container
+    gridContainer.innerHTML = '';
+
+    if (selectedType) {
+        // Fetch extra-curricular activities based on selected type (e.g., from server or predefined data)
+        // For demonstration, using static data
+        const activities = [
+            { name: 'Football Club', id: '1' },
+            { name: 'Basketball Team', id: '2' },
+            // Add more activities as needed
+        ];
+
+        activities.forEach(activity => {
+            const gridItem = document.createElement('div');
+            gridItem.classList.add('col-md-4');
+            gridItem.innerHTML = `
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">${activity.name}</h5>
+                        <button class="btn btn-info btn-sm" onclick="viewExtraCurricularDetails('${activity.id}')">View</button>
+                    </div>
+                </div>
+            `;
+            gridContainer.appendChild(gridItem);
+        });
+    }
+}
+
+
+// Function to save the extra-curricular type (create/edit)
+function saveExtraCurricular() {
+    const name = document.getElementById('extra-curricular-name').value;
+
+    if (name.trim() === '') {
+        alert('Please enter a valid extra-curricular name.');
+        return;
+    }
+
+    // Implement save logic here (e.g., send data to server)
+
+    // Reset form and close modal
+    document.getElementById('extraCurricularForm').reset();
+    const createModal = new bootstrap.Modal(document.getElementById('createExtraCurricularModal'));
+    createModal.hide();
+    populateExtraCurricularGrid(); // Refresh the grid after saving
+}
+
+// Function to edit the selected extra-curricular (placeholder)
+function editSelectedExtraCurricular() {
+    // Implement edit logic (e.g., populate the form with selected item's details)
+    alert('Edit functionality not implemented yet.');
+}
+
+// Function to delete the selected extra-curricular (placeholder)
+function deleteSelectedExtraCurricular() {
+    if (confirm('Are you sure you want to delete the selected extra-curricular?')) {
+        // Implement delete logic here (e.g., remove item from server)
+        alert('Delete functionality not implemented yet.');
+        populateExtraCurricularGrid(); // Refresh the grid after deletion
+    }
+}
+
+// Function to print the list of extra-curricular activities (placeholder)
+function printExtraCurricularList() {
+    // Implement print logic here
+    alert('Print functionality not implemented yet.');
+}
+
+// Function to view details of a selected extra-curricular (placeholder)
+function viewExtraCurricularDetails(id) {
+    // Implement view logic (e.g., show details in a new modal)
+    alert(`View details for extra-curricular ID: ${id}`);
+}
+
+// Function to save terms
+function saveTerms() {
+    const year = document.getElementById('select-year').value;
+    const terms = ['Term 1', 'Term 2', 'Term 3', 'Term 4'];
+
+    terms.forEach(term => {
+        const schoolTermFrom = document.getElementById(`school-${term.toLowerCase().replace(' ', '-')}-from`).value;
+        const schoolTermTo = document.getElementById(`school-${term.toLowerCase().replace(' ', '-')}-to`).value;
+        const educatorTermFrom = document.getElementById(`educator-${term.toLowerCase().replace(' ', '-')}-from`).value;
+        const educatorTermTo = document.getElementById(`educator-${term.toLowerCase().replace(' ', '-')}-to`).value;
+        const staffTermFrom = document.getElementById(`staff-${term.toLowerCase().replace(' ', '-')}-from`).value;
+        const staffTermTo = document.getElementById(`staff-${term.toLowerCase().replace(' ', '-')}-to`).value;
+
+        // Implement save logic here, e.g., send data to server
+        console.log(`Year: ${year}, ${term} - School: ${schoolTermFrom} to ${schoolTermTo}, Educator: ${educatorTermFrom} to ${educatorTermTo}, Staff: ${staffTermFrom} to ${staffTermTo}`);
+    });
+
+    alert('Terms saved successfully!');
+}
+
+// Function to delete terms
+function deleteTerms() {
+    if (confirm('Are you sure you want to delete all terms?')) {
+        // Implement delete logic here
+        document.querySelectorAll('input[type="date"]').forEach(input => input.value = '');
+        alert('All terms deleted!');
+    }
+}
+
+
+// Function to handle learner view/update
+    function viewLearner(admissionNumber) {
+        // Implement logic to view/update learner details
+        alert(`Viewing/updating learner with admission number ${admissionNumber}`);
+    }
+    
+    // Function to handle learner archive
+    function archiveLearner(admissionNumber) {
+        if (confirm(`Are you sure you want to archive the learner with admission number ${admissionNumber}?`)) {
+            // Implement logic to archive the learner
+            alert(`Learner with admission number ${admissionNumber} archived`);
+        }
+    }
+    
+    // Function to handle RCL maintenance
+    function maintainRCL(admissionNumber) {
+        // Implement logic to maintain RCL for the learner
+        alert(`Maintaining RCL for learner with admission number ${admissionNumber}`);
+    }
+    
+    // Function to view disciplinary records
+    function viewDisciplinary(admissionNumber) {
+        // Implement logic to view disciplinary records
+        alert(`Viewing disciplinary records for learner with admission number ${admissionNumber}`);
+    }
+    
+    // Function to view sports and extra murals
+    function viewSports(admissionNumber) {
+        // Implement logic to view sports and extra murals
+        alert(`Viewing sports and extra murals for learner with admission number ${admissionNumber}`);
+    }
+    
+    // Function to view provisional transfer forms
+    function viewTransferForms(admissionNumber) {
+        // Implement logic to view provisional transfer forms
+        alert(`Viewing provisional transfer forms for learner with admission number ${admissionNumber}`);
+    }
+    
+    // Function to add a new learner
+    function addLearner() {
+        // Implement logic to add a new learner
+        alert('Add new learner functionality');
+    }
+    
+    // Function to add a parent to a learner
+    function addParent(admissionNumber) {
+        // Implement logic to add a parent to the learner
+        alert(`Adding parent to learner with admission number ${admissionNumber}`);
+    }
+    
+    // Function to view the main parent details
+    function viewMainParent(admissionNumber) {
+        // Implement logic to view main parent details
+        alert(`Viewing main parent details for learner with admission number ${admissionNumber}`);
+    }
+    
+    // Function to view family details
+    function viewFamily(admissionNumber) {
+        // Implement logic to view family details
+        alert(`Viewing family details for learner with admission number ${admissionNumber}`);
+    }
+    
+    // Add event listeners for search and filter functionalities
+    document.getElementById('search').addEventListener('input', function() {
+        filterLearners();
+    });
+    document.getElementById('filter-grade').addEventListener('change', function() {
+        filterLearners();
+    });
+    document.getElementById('filter-class').addEventListener('change', function() {
+        filterLearners();
+    });
+    
+    // Function to filter learners based on search and filters
+    function filterLearners() {
+        const searchValue = document.getElementById('search').value.toLowerCase();
+        const gradeFilter = document.getElementById('filter-grade').value;
+        const classFilter = document.getElementById('filter-class').value;
+        const tableRows = document.querySelectorAll('#learner-table-body tr');
+    
+        tableRows.forEach(row => {
+            const surname = row.cells[0].textContent.toLowerCase();
+            const idNumber = row.cells[6].textContent.toLowerCase();
+            const grade = row.cells[3].textContent;
+            const className = row.cells[4].textContent;
+    
+            if ((surname.includes(searchValue) || idNumber.includes(searchValue)) &&
+                (gradeFilter === '' || grade === gradeFilter) &&
+                (classFilter === '' || className === classFilter)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
+
+    
+    // Function to create a new hostel
+function createHostel() {
+    const hostelName = document.getElementById('hostel-name').value;
+    const contactPerson = document.getElementById('contact-person').value;
+    const address = document.getElementById('hostel-address').value;
+    const telephone = document.getElementById('hostel-telephone').value;
+
+    if (hostelName.trim() === '' || contactPerson.trim() === '' || address.trim() === '' || telephone.trim() === '') {
+        alert('Please fill out all fields.');
+        return;
+    }
+
+    // Add hostel to the list (replace with actual logic as needed)
+    const accordion = document.getElementById('hostelManagementAccordion');
+    const newHostelItem = document.createElement('div');
+    newHostelItem.classList.add('accordion-item');
+    newHostelItem.innerHTML = `
+        <h2 class="accordion-header" id="heading${hostelName}">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${hostelName}" aria-expanded="false" aria-controls="collapse${hostelName}">
+                ${hostelName}
+            </button>
+        </h2>
+        <div id="collapse${hostelName}" class="accordion-collapse collapse" aria-labelledby="heading${hostelName}" data-bs-parent="#hostelManagementAccordion">
+            <div class="accordion-body">
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Contact Person:</strong> ${contactPerson}</li>
+                    <li class="list-group-item"><strong>Address:</strong> ${address}</li>
+                    <li class="list-group-item"><strong>Telephone:</strong> ${telephone}</li>
+                </ul>
+            </div>
+        </div>
+    `;
+    accordion.appendChild(newHostelItem);
+
+    // Reset and close the modal
+    resetHostelForm();
+    const createHostelModal = bootstrap.Modal.getInstance(document.getElementById('createHostelModal'));
+    createHostelModal.hide();
+}
+
+// Function to clear the hostel form
+function resetHostelForm() {
+    document.getElementById('createHostelForm').reset();
+}
+
+// Function to delete a hostel (modify according to actual use case)
+function deleteHostel() {
+    // Implement logic to delete a hostel (e.g., confirmation dialog, remove from DOM, etc.)
+    if (confirm('Are you sure you want to delete this hostel?')) {
+        // Assuming the hostel is selected or identified in some way
+        // This should remove the selected hostel from the list
+        // Replace with actual logic
+        alert('Hostel deleted');
+    }
+}
+
+let selectedGrade = '';
+
+// Open Create Class Modal without closing Class Management Modal
+function openCreateClassModal(grade) {
+    selectedGrade = grade;
+    document.getElementById('class-grade').value = grade;
+    
+    // Open the Create Class Modal
+    const createClassModal = new bootstrap.Modal(document.getElementById('createClassModal'));
+    createClassModal.show();
+}
+
+// Create Class and return to the Class Management Modal
+function createClass() {
+    const className = document.getElementById('class-name').value;
+    const classType = document.getElementById('class-type').value;
+
+    if (className.trim() === '') {
+        alert('Please enter a valid class name.');
+        return;
+    }
+
+    // Dynamically append new class to the respective grade in the tree view
+    const gradeList = document.querySelector(`#grade${selectedGrade}Classes .list-unstyled`);
+    const newClassItem = document.createElement('li');
+    newClassItem.classList.add('d-flex', 'justify-content-between', 'align-items-center');
+    newClassItem.innerHTML = `
+      ${className}
+      <button class="btn btn-danger btn-sm" onclick="deleteClass('${className}')"><i class="fas fa-trash"></i> Delete</button>
+    `;
+    gradeList.appendChild(newClassItem);
+
+    // Reset and close the Create Class Modal
+    document.getElementById('createClassForm').reset();
+    const createClassModal = bootstrap.Modal.getInstance(document.getElementById('createClassModal'));
+    createClassModal.hide();
+    
+    // Re-focus on the Class Management Modal (it stays open in the background)
+    const classManagementModal = bootstrap.Modal.getOrCreateInstance(document.getElementById('classManagementModal'));
+    classManagementModal.show();
+}
+
+function deleteClass(className) {
+    if (confirm(`Are you sure you want to delete class ${className}?`)) {
+        const classItem = document.querySelector(`li:contains('${className}')`);
+        if (classItem) {
+            classItem.remove();
+        }
+    }
+}
+
+
+    // Placeholder logic for generating and confirming the timetable
+    document.getElementById('generateTimetable').addEventListener('click', function () {
+        document.getElementById('generatedTimetable').innerHTML = '<p>Your timetable is generated based on the input provided.</p>';
+    });
+
+    document.getElementById('confirmTimetable').addEventListener('click', function () {
+        alert('Timetable confirmed and saved successfully!');
+    });
+</script>
+
+
+
+{% endblock %}
