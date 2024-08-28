@@ -8,10 +8,14 @@ services:
       POSTGRES_PASSWORD: Monday@01
     ports:
       - "5432:5432"
+    volumes:
+    - postgres_data:/var/lib/postgresql/data
 
   web:
     build: .
-    command: gunicorn pr_academy360.wsgi:application --bind 0.0.0.0:8000
+    command: >
+      sh -c "python manage.py migrate &&
+             gunicorn pr_academy360.wsgi:application --bind 0.0.0.0:8000"
     volumes:
       - .:/app
     ports:
@@ -20,3 +24,8 @@ services:
       - db
     environment:
       DATABASE_URL: postgres://root:Monday@01@db:5432/DB_Academy360
+      ALLOWED_HOSTS: "*"
+      DEBUG: "1"  # Enable this for development; remove for production
+
+volumes:
+  postgres_data:
