@@ -82,11 +82,11 @@ DATABASES = {
         'NAME': 'DB_Academy360',  # Replace with your PostgreSQL database name
         'USER': 'root',  # Replace with your PostgreSQL username
         'PASSWORD': 'Monday@01',  # Replace with your PostgreSQL password
-        'HOST': 'localhost',  # Typically 'localhost' or the IP of your PostgreSQL server
+        'HOST': 'e0gokg48ggwwkwkooossoowk',  # Typically 'localhost' or the IP of your PostgreSQL server
         'PORT': '5432',  # Usually 5432 for PostgreSQL
     }
 }
-
+#postgres://root:Monday@01@e0gokg48ggwwkwkooossoowk:5432/DB_Academy360
 
 
 # Password validation
