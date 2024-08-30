@@ -21,9 +21,9 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      - d9612f1cd12c
     environment:
-      DATABASE_URL: postgres://root:Monday@01@db:5432/DB_Academy360
+      DATABASE_URL: postgres://root:Monday@01@d9612f1cd12c:5432/DB_Academy360
       ALLOWED_HOSTS: "*"
       DEBUG: "1"  # Enable this for development; remove for production
 
