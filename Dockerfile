@@ -13,7 +13,7 @@ COPY . /app
 #RUN pip install --no-cache-dir -r requirements.txt
 
 # Collect static files (if you are using Django's static files feature)
-RUN python manage.py collectstatic --noinput
+# RUN python manage.py collectstatic --noinput
   
 # Make port 8000 available to the world outside this container
 EXPOSE 8000
