@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'pr_academy360.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgresql-database-rgo80w0ww0g44wc4ow8804g4',  # Replace with your PostgreSQL database name
+        'NAME': 'DB_Academy360',  # Replace with your PostgreSQL database name
         'USER': 'root',  # Replace with your PostgreSQL username
         'PASSWORD': 'Monday@01',  # Replace with your PostgreSQL password
-        'HOST': 'localhost',  # Typically 'localhost' or the IP of your PostgreSQL server
+        'HOST': 'postgresql-database-rgo80w0ww0g44wc4ow8804g4',  # Typically 'localhost' or the IP of your PostgreSQL server
         'PORT': '5432',  # Usually 5432 for PostgreSQL
     }
 }
