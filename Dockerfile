@@ -22,5 +22,5 @@ EXPOSE 8000
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-# Run migrations and start the application using gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "pr_academy360.wsgi:application"]
+# Run migrations and collect static files when the container starts
+CMD ["sh", "-c", "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn --bind 0.0.0.0:8000 pr_academy360.wsgi:application"]
