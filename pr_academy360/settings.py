@@ -86,7 +86,7 @@ DATABASES = {
         'PORT': '5432',  # Usually 5432 for PostgreSQL
     }
 }
-#postgres://root:Monday@01@e0gokg48ggwwkwkooossoowk:5432/DB_Academy360
+
 
 
 # Password validation
