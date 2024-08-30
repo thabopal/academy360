@@ -9,8 +9,8 @@ COPY . /app
 
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+#RUN pip install --upgrade pip
+#RUN pip install --no-cache-dir -r requirements.txt
 
 # Collect static files (if you are using Django's static files feature)
 RUN python manage.py collectstatic --noinput
