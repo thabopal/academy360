@@ -107,6 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CSRF_TRUSTED_ORIGINS = ['https://academy360.co.za', 'https://localhost:8000']
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
