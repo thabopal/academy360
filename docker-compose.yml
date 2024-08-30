@@ -9,7 +9,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-    - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
 
   web:
     build: .
@@ -21,9 +21,9 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - d9612f1cd12c
+      - db  # Use the service name 'db' here, not the container ID
     environment:
-      DATABASE_URL: postgres://root:Monday@01@d9612f1cd12c:5432/DB_Academy360
+      DATABASE_URL: postgres://root:Monday@01@db:5432/DB_Academy360  # Ensure 'db' is used here
       ALLOWED_HOSTS: "*"
       DEBUG: "1"  # Enable this for development; remove for production
 
