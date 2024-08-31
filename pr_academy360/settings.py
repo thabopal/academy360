@@ -82,7 +82,7 @@ DATABASES = {
          'NAME': 'DB_Academy360',  # Replace with your PostgreSQL database name
          'USER': 'root',  # Replace with your PostgreSQL username
          'PASSWORD': 'Monday@01',  # Replace with your PostgreSQL password
-         'HOST': 'e0gokg48ggwwkwkooossoowk',  # Typically 'localhost' or the IP of your PostgreSQL server
+         'HOST': 'i4gogsw084okw4kgw4ww4cgw',  # Typically 'localhost' or the IP of your PostgreSQL server
          'PORT': '5432',  # Usually 5432 for PostgreSQL
      }
 }
