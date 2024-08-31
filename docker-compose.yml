@@ -15,11 +15,11 @@ services:
     build: .
     command: >
       sh -c "python manage.py migrate &&
-             gunicorn pr_academy360.wsgi:application --bind 0.0.0.0:8000"
+             gunicorn pr_academy360.wsgi:application --bind 0.0.0.0:8001"
     volumes:
       - .:/app
     ports:
-      - "8000:8000"
+      - "8001:8001"
     depends_on:
       - vkwokco40oo004skkgo8w0w8  # Use the service name 'db' here, not the container ID
     environment:

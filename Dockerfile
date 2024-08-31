@@ -19,7 +19,7 @@ RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 # Expose port 8000 for the Django app
-EXPOSE 8000
+EXPOSE 8001
 
 # Define environment variables to avoid writing .pyc files and enable unbuffered output
 ENV PYTHONDONTWRITEBYTECODE=1
