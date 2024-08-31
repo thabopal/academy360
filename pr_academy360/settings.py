@@ -76,28 +76,28 @@ WSGI_APPLICATION = 'pr_academy360.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 #Local
-DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.postgresql',
-         'NAME': 'DB_Academy360',  # Replace with your PostgreSQL database name
-         'USER': 'root',  # Replace with your PostgreSQL username
-         'PASSWORD': 'Cyber@#War8728',  # Replace with your PostgreSQL password
-         'HOST': 'i4gogsw084okw4kgw4ww4cgw',  # Typically 'localhost' or the IP of your PostgreSQL server
-         'PORT': '5432',  # Usually 5432 for PostgreSQL
-     }
-}
+# DATABASES = {
+#      'default': {
+#          'ENGINE': 'django.db.backends.postgresql',
+#          'NAME': 'DB_Academy360',  # Replace with your PostgreSQL database name
+#          'USER': 'root',  # Replace with your PostgreSQL username
+#          'PASSWORD': 'Cyber@#War8728',  # Replace with your PostgreSQL password
+#          'HOST': 'i4gogsw084okw4kgw4ww4cgw',  # Typically 'localhost' or the IP of your PostgreSQL server
+#          'PORT': '5432',  # Usually 5432 for PostgreSQL
+#      }
+# }
 
 #Remote
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'DB_Academy360',  # Replace with your PostgreSQL database name
-#         'USER': 'root',  # Replace with your PostgreSQL username
-#         'PASSWORD': 'Monday@01',  # Replace with your PostgreSQL password
-#         'HOST': '102.211.204.58',  # Typically 'localhost' or the IP of your PostgreSQL server
-#         'PORT': '5432',  # Usually 5432 for PostgreSQL
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'DB_Academy360',  # Replace with your PostgreSQL database name
+        'USER': 'root',  # Replace with your PostgreSQL username
+        'PASSWORD': 'Cyber@#War8728',  # Replace with your PostgreSQL password
+        'HOST': '102.211.204.58',  # Typically 'localhost' or the IP of your PostgreSQL server
+        'PORT': '5432',  # Usually 5432 for PostgreSQL
+    }
+}
 #postgres://root:Monday@01@102.211.204.58:5432/DB_Academy360
 
 
