@@ -4,8 +4,8 @@ services:
     image: postgres:13
     environment:
       POSTGRES_DB: DB_Academy360
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: Cyber@#War8728
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ov3E79fqnN0AtV20r0DIALYM2XvwwGYwWqdj5iIrYhJ5c6Kgi3mdzDK5Sp2qDvIP
     ports:
       - "5432:5432"
     volumes:
@@ -21,9 +21,9 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - i4gogsw084okw4kgw4ww4cgw  # Use the service name 'db' here, not the container ID
+      - vkwokco40oo004skkgo8w0w8  # Use the service name 'db' here, not the container ID
     environment:
-      DATABASE_URL: postgres://root:Cyber@#War8728@i4gogsw084okw4kgw4ww4cgw:5432/DB_Academy360  # Ensure 'db' is used here
+      DATABASE_URL: postgres://postgres:ov3E79fqnN0AtV20r0DIALYM2XvwwGYwWqdj5iIrYhJ5c6Kgi3mdzDK5Sp2qDvIP@vkwokco40oo004skkgo8w0w8:5432/DB_Academy360  # Ensure 'db' is used here
       ALLOWED_HOSTS: "*"
       DEBUG: "1"  # Enable this for development; remove for production
 
