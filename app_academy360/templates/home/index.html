@@ -116,8 +116,7 @@
 
 <!--Modal Pop ups-->
 <!-- School Information Modal -->
-<div class="modal fade bounce" id="schoolInfoModal" tabindex="-1" aria-labelledby="schoolInfoModalLabel"
-    aria-hidden="true">
+<div class="modal fade bounce" id="schoolInfoModal" tabindex="-1" aria-labelledby="schoolInfoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -125,90 +124,119 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <!-- Nav Tabs for Wizard Form -->
-                <ul class="nav nav-tabs" id="wizardTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="contact-details-tab" data-bs-toggle="tab" href="#contact-details"
-                            role="tab">Contact Details</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="survey-details1-tab" data-bs-toggle="tab" href="#survey-details1"
-                            role="tab">Survey Details 1</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="survey-details2-tab" data-bs-toggle="tab" href="#survey-details2"
-                            role="tab">Survey Details 2</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="sgb-status-tab" data-bs-toggle="tab" href="#sgb-status" role="tab">SGB
-                            Status</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="twinning-details-tab" data-bs-toggle="tab" href="#twinning-details"
-                            role="tab">Twinning Details</a>
-                    </li>
-                </ul>
+                <!-- Progress Bar and Step Label -->
+                <div class="d-flex justify-content-between mb-3">
+                    <div class="progress flex-grow-1">
+                        <div class="progress-bar" id="progressBar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <span id="stepLabel">Step 1 of 5</span>
+                </div>
 
-                <!-- Tab Content for the Wizard -->
-                <div class="tab-content mt-3" id="wizardTabContent">
+                <!-- Wizard Form -->
+                <div class="tab-content" id="wizardTabContent">
                     <!-- Contact Details Tab -->
-                    <div class="tab-pane fade show active" id="contact-details" role="tabpanel"
-                        aria-labelledby="contact-details-tab">
-                        <form>
+                    <div class="tab-pane fade show active" id="step1" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="OfficialSchoolName" class="form-label">Official School Name</label>
+                                <input type="text" class="form-control" id="OfficialSchoolName" placeholder="Enter official school name">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="EducationRegion" class="form-label">Education Region</label>
+                                <input type="text" class="form-control" id="EducationRegion" placeholder="Enter education region">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="Circuit_Cluster" class="form-label">Circuit/Cluster</label>
+                                <input type="text" class="form-control" id="Circuit_Cluster" placeholder="Enter circuit/cluster">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="DistrictCode" class="form-label">District Code</label>
+                                <input type="number" class="form-control" id="DistrictCode" placeholder="Enter district code">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="StreetName" class="form-label">Street Name</label>
+                                <input type="text" class="form-control" id="StreetName" placeholder="Enter street name">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="BuildingName" class="form-label">Building Name</label>
+                                <input type="text" class="form-control" id="BuildingName" placeholder="Enter building name">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="BuildingNumber" class="form-label">Building Number</label>
+                                <input type="number" class="form-control" id="BuildingNumber" placeholder="Enter building number">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="PostalCode" class="form-label">Postal Code</label>
+                                <input type="text" class="form-control" id="PostalCode" placeholder="Enter postal code">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="EmailAddress" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="EmailAddress" placeholder="Enter email address">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="AlternativeEmailAddress" class="form-label">Alternative Email Address</label>
+                                <input type="email" class="form-control" id="AlternativeEmailAddress" placeholder="Enter alternative email address">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="SchoolFirstNumber" class="form-label">School First Number</label>
+                                <input type="text" class="form-control" id="SchoolFirstNumber" placeholder="Enter school first number">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="SchoolSecondNumber" class="form-label">School Second Number</label>
+                                <input type="text" class="form-control" id="SchoolSecondNumber" placeholder="Enter school second number">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Survey Details Part 1 Tab -->
+                    <div class="tab-pane fade" id="step2" role="tabpanel">
+                        <form id="surveyDetails1Form">
+                            <h5>Survey Details Part 1</h5>
                             <div class="mb-3">
-                                <label for="schoolName" class="form-label">School Name</label>
-                                <input type="text" class="form-control" id="schoolName" placeholder="Enter school name">
+                                <label for="EMISNumber" class="form-label">EMIS Number</label>
+                                <input type="number" class="form-control" id="EMISNumber" placeholder="Enter EMIS number">
                             </div>
                             <div class="mb-3">
-                                <label for="schoolAddress" class="form-label">School Address</label>
-                                <input type="text" class="form-control" id="schoolAddress"
-                                    placeholder="Enter school address">
+                                <label for="EducationDistrict" class="form-label">Education District</label>
+                                <input type="number" class="form-control" id="EducationDistrict" placeholder="Enter education district">
                             </div>
                             <div class="mb-3">
-                                <label for="schoolPhone" class="form-label">School Phone</label>
-                                <input type="text" class="form-control" id="schoolPhone"
-                                    placeholder="Enter phone number">
+                                <label for="ProvincialDepartment" class="form-label">Provincial Department</label>
+                                <input type="number" class="form-control" id="ProvincialDepartment" placeholder="Enter provincial department">
+                            </div>
+                            <div class="mb-3">
+                                <label for="DistanceToNearestTown" class="form-label">Distance to Nearest Town (km)</label>
+                                <input type="number" class="form-control" id="DistanceToNearestTown" placeholder="Enter distance to nearest town (km)">
+                            </div>
+                            <div class="mb-3">
+                                <label for="ErfNumber" class="form-label">ERF Number</label>
+                                <input type="number" class="form-control" id="ErfNumber" placeholder="Enter ERF number">
                             </div>
                         </form>
                     </div>
 
-                    <!-- Survey Details 1 Tab -->
-                    <div class="tab-pane fade" id="survey-details1" role="tabpanel"
-                        aria-labelledby="survey-details1-tab">
-                        <form>
+                    <!-- Survey Details Part 2 Tab -->
+                    <div class="tab-pane fade" id="step3" role="tabpanel">
+                        <form id="surveyDetails2Form">
+                            <h5>Survey Details Part 2</h5>
                             <div class="mb-3">
-                                <label for="enrollmentCount" class="form-label">Enrollment Count</label>
-                                <input type="number" class="form-control" id="enrollmentCount"
-                                    placeholder="Enter enrollment count">
+                                <label for="InternetAccess" class="form-label">Internet Access</label>
+                                <select class="form-select" id="InternetAccess">
+                                    <option value="true">Yes</option>
+                                    <option value="false">No</option>
+                                </select>
                             </div>
                             <div class="mb-3">
-                                <label for="numEducators" class="form-label">Number of Educators</label>
-                                <input type="number" class="form-control" id="numEducators"
-                                    placeholder="Enter number of educators">
-                            </div>
-                        </form>
-                    </div>
-
-                    <!-- Survey Details 2 Tab -->
-                    <div class="tab-pane fade" id="survey-details2" role="tabpanel"
-                        aria-labelledby="survey-details2-tab">
-                        <form>
-                            <div class="mb-3">
-                                <label for="classrooms" class="form-label">Number of Classrooms</label>
-                                <input type="number" class="form-control" id="classrooms"
-                                    placeholder="Enter number of classrooms">
-                            </div>
-                            <div class="mb-3">
-                                <label for="avgClassSize" class="form-label">Average Class Size</label>
-                                <input type="number" class="form-control" id="avgClassSize"
-                                    placeholder="Enter average class size">
+                                <label for="NumberOfAdministrativeComputers" class="form-label">Number of Administrative Computers</label>
+                                <input type="number" class="form-control" id="NumberOfAdministrativeComputers" placeholder="Enter number of administrative computers">
                             </div>
                         </form>
                     </div>
 
                     <!-- SGB Status Tab -->
-                    <div class="tab-pane fade" id="sgb-status" role="tabpanel" aria-labelledby="sgb-status-tab">
-                        <form>
+                    <div class="tab-pane fade" id="step4" role="tabpanel">
+                        <form id="sgbStatusForm">
+                            <h5>SGB Status</h5>
                             <div class="mb-3">
                                 <label for="sgbEstablished" class="form-label">Is the SGB Established?</label>
                                 <select class="form-select" id="sgbEstablished">
@@ -219,20 +247,18 @@
                             </div>
                             <div class="mb-3">
                                 <label for="sgbMembers" class="form-label">Number of SGB Members</label>
-                                <input type="number" class="form-control" id="sgbMembers"
-                                    placeholder="Enter number of SGB members">
+                                <input type="number" class="form-control" id="sgbMembers" placeholder="Enter number of SGB members">
                             </div>
                         </form>
                     </div>
 
                     <!-- Twinning Details Tab -->
-                    <div class="tab-pane fade" id="twinning-details" role="tabpanel"
-                        aria-labelledby="twinning-details-tab">
-                        <form>
+                    <div class="tab-pane fade" id="step5" role="tabpanel">
+                        <form id="twinningDetailsForm">
+                            <h5>Twinning Details</h5>
                             <div class="mb-3">
                                 <label for="twinningSchool" class="form-label">Twinning School</label>
-                                <input type="text" class="form-control" id="twinningSchool"
-                                    placeholder="Enter twinning school name">
+                                <input type="text" class="form-control" id="twinningSchool" placeholder="Enter twinning school name">
                             </div>
                             <div class="mb-3">
                                 <label for="twinningStatus" class="form-label">Twinning Status</label>
@@ -247,12 +273,16 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save Changes</button>
+                <button type="button" class="btn btn-secondary" id="prevBtn">Previous</button>
+                <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+                <button type="button" class="btn btn-success d-none" id="saveSubmitBtn">Save & Submit</button>
             </div>
         </div>
     </div>
 </div>
+
+
+
 
 <!-- Learner/Parent Information Modal -->
 <div class="modal fade bounce" id="learnerParentInfoModal" tabindex="-1" aria-labelledby="learnerParentInfoModalLabel"
@@ -1316,6 +1346,60 @@
 
 
 <script>
+<!-- JavaScript for Wizard Navigation -->
+
+document.addEventListener('DOMContentLoaded', function() {
+    let currentStep = 0;
+    const steps = document.querySelectorAll('#wizardTabContent .tab-pane');
+    const progressBar = document.getElementById('progressBar');
+    const stepLabel = document.getElementById('stepLabel');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const saveSubmitBtn = document.getElementById('saveSubmitBtn');
+
+    function updateWizard() {
+        steps.forEach((step, index) => {
+            step.classList.toggle('show', index === currentStep);
+            step.classList.toggle('active', index === currentStep);
+        });
+
+        progressBar.style.width = ((currentStep + 1) / steps.length * 100) + '%';
+        progressBar.setAttribute('aria-valuenow', ((currentStep + 1) / steps.length * 100));
+        stepLabel.textContent = `Step ${currentStep + 1} of ${steps.length}`;
+        
+        prevBtn.style.display = currentStep === 0 ? 'none' : 'inline-block';
+        
+        if (currentStep === steps.length - 1) {
+            nextBtn.style.display = 'none';
+            saveSubmitBtn.style.display = 'inline-block';
+        } else {
+            nextBtn.style.display = 'inline-block';
+            saveSubmitBtn.style.display = 'none';
+        }
+    }
+    
+    prevBtn.addEventListener('click', function() {
+        if (currentStep > 0) {
+            currentStep--;
+            updateWizard();
+        }
+    });
+
+    nextBtn.addEventListener('click', function() {
+        if (currentStep < steps.length - 1) {
+            currentStep++;
+            updateWizard();
+        }
+    });
+
+    saveSubmitBtn.addEventListener('click', function() {
+        // Add your save and submit logic here
+        alert('Form saved and submitted!');
+    });
+
+    updateWizard();
+});
+///////////////////////////
     // Function to clear the feeder school form
 function clearFeederSchoolForm() {
     document.getElementById('feederSchoolForm').reset();
