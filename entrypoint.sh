@@ -7,4 +7,4 @@ python manage.py migrate
 python manage.py collectstatic --noinput
 
 # Start the Gunicorn server
-exec gunicorn --bind 0.0.0.0:8000 pr_academy360.wsgi:application
+exec gunicorn --bind 0.0.0.0:8001 pr_academy360.wsgi:application
