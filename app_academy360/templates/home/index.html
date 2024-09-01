@@ -1370,11 +1370,11 @@ document.addEventListener('DOMContentLoaded', function() {
         prevBtn.style.display = currentStep === 0 ? 'none' : 'inline-block';
         
         if (currentStep === steps.length - 1) {
-            nextBtn.style.display = 'none';
-            saveSubmitBtn.style.display = 'inline-block';
+            nextBtn.classList.add('d-none');
+            saveSubmitBtn.classList.remove('d-none');
         } else {
-            nextBtn.style.display = 'inline-block';
-            saveSubmitBtn.style.display = 'none';
+            nextBtn.classList.remove('d-none');
+            saveSubmitBtn.classList.add('d-none');
         }
     }
     
