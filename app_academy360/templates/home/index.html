@@ -117,7 +117,7 @@
 <!--Modal Pop ups-->
 <!-- School Information Modal -->
 <div class="modal fade bounce" id="schoolInfoModal" tabindex="-1" aria-labelledby="schoolInfoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="schoolInfoModalLabel">School Information Wizard</h5>
@@ -136,73 +136,105 @@
                 <div class="tab-content" id="wizardTabContent">
                     <!-- Contact Details Tab -->
                     <div class="tab-pane fade show active" id="step1" role="tabpanel">
+                        <h5>School Details Part 1</h5>
                         <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="OfficialSchoolName" class="form-label">Official School Name</label>
-                                <input type="text" class="form-control" id="OfficialSchoolName" placeholder="Enter official school name">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="EducationRegion" class="form-label">Education Region</label>
-                                <input type="text" class="form-control" id="EducationRegion" placeholder="Enter education region">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="Circuit_Cluster" class="form-label">Circuit/Cluster</label>
-                                <input type="text" class="form-control" id="Circuit_Cluster" placeholder="Enter circuit/cluster">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="DistrictCode" class="form-label">District Code</label>
-                                <input type="number" class="form-control" id="DistrictCode" placeholder="Enter district code">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="StreetName" class="form-label">Street Name</label>
-                                <input type="text" class="form-control" id="StreetName" placeholder="Enter street name">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="BuildingName" class="form-label">Building Name</label>
-                                <input type="text" class="form-control" id="BuildingName" placeholder="Enter building name">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="BuildingNumber" class="form-label">Building Number</label>
-                                <input type="number" class="form-control" id="BuildingNumber" placeholder="Enter building number">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="PostalCode" class="form-label">Postal Code</label>
-                                <input type="text" class="form-control" id="PostalCode" placeholder="Enter postal code">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="EmailAddress" class="form-label">Email Address</label>
-                                <input type="email" class="form-control" id="EmailAddress" placeholder="Enter email address">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="AlternativeEmailAddress" class="form-label">Alternative Email Address</label>
-                                <input type="email" class="form-control" id="AlternativeEmailAddress" placeholder="Enter alternative email address">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="SchoolFirstNumber" class="form-label">School First Number</label>
-                                <input type="text" class="form-control" id="SchoolFirstNumber" placeholder="Enter school first number">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="SchoolSecondNumber" class="form-label">School Second Number</label>
-                                <input type="text" class="form-control" id="SchoolSecondNumber" placeholder="Enter school second number">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Survey Details Part 1 Tab -->
-                    <div class="tab-pane fade" id="step2" role="tabpanel">
-                        <form id="surveyDetails1Form">
-                            <h5>Survey Details Part 1</h5>
-                            <div class="mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="EMISNumber" class="form-label">EMIS Number</label>
                                 <input type="number" class="form-control" id="EMISNumber" placeholder="Enter EMIS number">
                             </div>
-                            <div class="mb-3">
-                                <label for="EducationDistrict" class="form-label">Education District</label>
-                                <input type="number" class="form-control" id="EducationDistrict" placeholder="Enter education district">
+                            <div class="col-md-4 mb-3">
+                                <label for="OfficialSchoolName" class="form-label">Official School Name</label>
+                                <input type="text" class="form-control" id="OfficialSchoolName" placeholder="Enter official school name">
                             </div>
-                            <div class="mb-3">
+                            <div class="col-md-4 mb-3">
+                                <label for="Census Area" class="form-label">Census Area</label>
+                                <input type="text" class="form-control" id="CensusArea" placeholder="Enter census area">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="EducationRegion" class="form-label">Education Region</label>
+                                <input type="text" class="form-control" id="EducationRegion" placeholder="Enter education region">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="Circuit_Cluster" class="form-label">Circuit/Cluster</label>
+                                <input type="text" class="form-control" id="Circuit_Cluster" placeholder="Enter circuit/cluster">
+                            </div>
+                            <div class="col-md-4 mb-3">
                                 <label for="ProvincialDepartment" class="form-label">Provincial Department</label>
-                                <input type="number" class="form-control" id="ProvincialDepartment" placeholder="Enter provincial department">
+                                <select class="form-select" aria-label="Default select example" id="ProvincialDepartment">
+                                    <option selected>Select provincial department</option>
+                                    <option>Eastern Cape</option>
+                                    <option>Free State</option>
+                                    <option>Gauteng</option>
+                                    <option>Kwazulu Natal</option>
+                                    <option>Limpopo</option>
+                                    <option>Mpumalanga</option>
+                                    <option>Nothern Cape</option>
+                                    <option>North West</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="EducationRegion" class="form-label">Education District</label>
+                                <select class="form-select" aria-label="Default select example" id="EducationRegion">
+                                    <option selected>Select education region</option>
+                                    <option>Eastern Cape</option>
+                                    <option>Free State</option>
+                                    <option>Gauteng</option>
+                                    <option>Kwazulu Natal</option>
+                                    <option>Limpopo</option>
+                                    <option>Mpumalanga</option>
+                                    <option>Nothern Cape</option>
+                                    <option>North West</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="DistrictCode" class="form-label">District Code</label>
+                                <input type="number" class="form-control" id="DistrictCode" placeholder="Enter district code">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="PostalAddressType" class="form-label">Postal Address Type</label>
+                                <select class="form-select" aria-label="Default select example" id="PostalAddressType">
+                                    <option selected>Select postal address type</option>
+                                    <option>Street</option>
+                                    <option>Building</option>
+                                    <option>SAPO Village</option>
+                                    <option>P.O Box</option>
+                                    <option>Private Bag</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="StreetName" class="form-label">Street Name</label>
+                                <input type="text" class="form-control" id="StreetName" placeholder="Enter street name">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="Suburb" class="form-label">Suburb</label>
+                                <input type="text" class="form-control" id="Suburb" placeholder="Enter suburb">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="Town_City" class="form-label">Town/City</label>
+                                <input type="text" class="form-control" id="Town_City" placeholder="Enter town/city">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="PostalCode" class="form-label">Postal Code</label>
+                                <input type="text" class="form-control" id="PostalCode" placeholder="Enter postal code">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="BuildingName" class="form-label">Building Name</label>
+                                <input type="text" class="form-control" id="BuildingName" placeholder="Enter building name">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="BuildingNumber" class="form-label">Building Number</label>
+                                <input type="number" class="form-control" id="BuildingNumber" placeholder="Enter building number">
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <!-- Contact Details 2 Tab -->
+                    <div class="tab-pane fade show active" id="step2" role="tabpanel">
+                        <h5>School Details Part 2</h5>
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="NearestTown" class="form-label">NearestTown</label>
+                                <input type="number" class="form-control" id="NearestTown" placeholder="Enter nearest town">
                             </div>
                             <div class="mb-3">
                                 <label for="DistanceToNearestTown" class="form-label">Distance to Nearest Town (km)</label>
@@ -212,15 +244,28 @@
                                 <label for="ErfNumber" class="form-label">ERF Number</label>
                                 <input type="number" class="form-control" id="ErfNumber" placeholder="Enter ERF number">
                             </div>
-                        </form>
-                    </div>
-
-                    <!-- Survey Details Part 2 Tab -->
-                    <div class="tab-pane fade" id="step3" role="tabpanel">
-                        <form id="surveyDetails2Form">
-                            <h5>Survey Details Part 2</h5>
+                            <div class="col-md-4 mb-3">
+                                <label for="EmailAddress" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="EmailAddress" placeholder="Enter email address">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="AlternativeEmailAddress" class="form-label">Alternative Email Address</label>
+                                <input type="email" class="form-control" id="AlternativeEmailAddress" placeholder="Enter alternative email address">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="SchoolFirstNumber" class="form-label">School First Number</label>
+                                <input type="text" class="form-control" id="SchoolFirstNumber" placeholder="Enter school first number">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="SchoolSecondNumber" class="form-label">School Second Number</label>
+                                <input type="text" class="form-control" id="SchoolSecondNumber" placeholder="Enter school second number">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="PrincipalContactNumber" class="form-label">Principal Contact Number</label>
+                                <input type="text" class="form-control" id="PrincipalContactNumber" placeholder="Enter principal contact number">
+                            </div>
                             <div class="mb-3">
-                                <label for="InternetAccess" class="form-label">Internet Access</label>
+                                <label for="InternetAccess" class="form-label">Internet Access (Does the school have internet access?)</label>
                                 <select class="form-select" id="InternetAccess">
                                     <option value="true">Yes</option>
                                     <option value="false">No</option>
@@ -230,11 +275,26 @@
                                 <label for="NumberOfAdministrativeComputers" class="form-label">Number of Administrative Computers</label>
                                 <input type="number" class="form-control" id="NumberOfAdministrativeComputers" placeholder="Enter number of administrative computers">
                             </div>
+                        </div>
+                    </div>
+                    <!-- Survey Details Part 1 Tab -->
+                    <div class="tab-pane fade" id="step3" role="tabpanel">
+                        <form id="surveyDetails1Form">
+                            <h5>Survey Details Part 1</h5>
+                           
                         </form>
                     </div>
-
-                    <!-- SGB Status Tab -->
+                
+                    <!-- Survey Details Part 2 Tab -->
                     <div class="tab-pane fade" id="step4" role="tabpanel">
+                        <form id="surveyDetails2Form">
+                            <h5>Survey Details Part 2</h5>
+                           
+                        </form>
+                    </div>
+                
+                    <!-- SGB Status Tab -->
+                    <div class="tab-pane fade" id="step5" role="tabpanel">
                         <form id="sgbStatusForm">
                             <h5>SGB Status</h5>
                             <div class="mb-3">
@@ -251,9 +311,9 @@
                             </div>
                         </form>
                     </div>
-
+                
                     <!-- Twinning Details Tab -->
-                    <div class="tab-pane fade" id="step5" role="tabpanel">
+                    <div class="tab-pane fade" id="step6" role="tabpanel">
                         <form id="twinningDetailsForm">
                             <h5>Twinning Details</h5>
                             <div class="mb-3">
