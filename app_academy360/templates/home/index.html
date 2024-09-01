@@ -498,7 +498,7 @@ body {
                                   </div>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label for="HostSchoolName" class="form-label">If yes, provide the name of the host school</label>
+                                <label for="HostSchoolName" class="form-label">If yes, enter the host school</label>
                                 <input type="email" class="form-control" id="HostSchoolName" placeholder="Enter name of host school">
                             </div>
                             <div class="col-md-4 mb-3">
@@ -553,7 +553,7 @@ body {
                                 <label for="NSCRegNumber" class="form-label">NSC Centre Registration Number</label>
                                 <input type="text" class="form-control" id="NSCRegNumber" placeholder="Enter NSC centre registration number">
                             </div>
-                            <div class="col-md-4 mb-3">
+                            <div class="mb-3">
                                 <label for="ExaminationBoard" class="form-label">National School Nutrition Programme</label>
                                 <select class="form-select" id="ExaminationBoard">
                                     <option value="true">Not Applicable</option>
@@ -571,7 +571,148 @@ body {
                     <div class="tab-pane fade" id="step4" role="tabpanel">
                         <form id="surveyDetails2Form">
                             <h5>Survey Details Part 2</h5>
-                           
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="SchoolLevel" class="form-label">School Level</label>
+                                    <input type="text" class="form-control" id="SchoolLevel" placeholder="Enter school level">
+                                </div>
+                                
+                                <div class="col-md-4 mb-3">
+                                    <label for="LandOwnershp" class="form-label">Ownership of Land</label>
+                                    <select class="form-select" id="LandOwnershp">
+                                        <option value="true">Government Education</option>
+                                        <option value="true">Church</option>
+                                        <option value="true">Factory</option>
+                                        <option value="true">Farm</option>
+                                        <option value="true">Hospital</option>
+                                        <option value="true">Mine</option>
+                                        <option value="true">Trust Land</option>
+                                        <option value="true">Private</option>
+                                        <option value="true">Private Company</option>
+                                        <option value="true">Government Other</option>
+                                        <option value="true">Municipality</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="BuildingOwnershp" class="form-label">Ownership of buildings</label>
+                                    <select class="form-select" id="BuildingOwnershp">
+                                        <option value="true">Government Education</option>
+                                        <option value="true">Church</option>
+                                        <option value="true">Factory</option>
+                                        <option value="true">Farm</option>
+                                        <option value="true">Hospital</option>
+                                        <option value="true">Mine</option>
+                                        <option value="true">Trust Land</option>
+                                        <option value="true">Private</option>
+                                        <option value="true">Private Company</option>
+                                        <option value="true">Government Other</option>
+                                        <option value="true">Municipality</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="FocusedSchool" class="form-label">Is the school a focused school?</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="FocusedSchool" id="FocusedSchoolYes" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="FocusedSchool" id="FocusedSchoolNo" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">No</label>
+                                      </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="FocusArea" class="form-label">If yes, specify focus area.</label>
+                                    <select class="form-select" id="FocusArea">
+                                        <option value="true">Agriculture Science</option>
+                                        <option value="true">Arts, drama, music or ballet</option>
+                                        <option value="true">Aviation</option>
+                                        <option value="true">Commercial</option>
+                                        <option value="true">High Tech</option>
+                                        <option value="true">Hospitality</option>
+                                        <option value="true">Maritime</option>
+                                        <option value="true">Mathematics & Science</option>
+                                        <option value="true">School of Skills</option>
+                                        <option value="true">Sports School of Excellence</option>
+                                        <option value="true">Technical/Engineering</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="InstructionPrimaryLanguage" class="form-label">Primary Instruction Language?</label>
+                                    <select class="form-select" id="InstructionPrimaryLanguage">
+                                        <option value="true">Afrikaans</option>
+                                        <option value="true">English</option>
+                                        <option value="true">IsiNdebele</option>
+                                        <option value="true">Siswati</option>
+                                        <option value="true">IsiXhosa</option>
+                                        <option value="true">IsiZulu</option>
+                                        <option value="true">SeSotho</option>
+                                        <option value="true">SePedi</option>
+                                        <option value="true">SeTswana</option>
+                                        <option value="true">TshiVenda</option>
+                                        <option value="true">XiTsonga</option>
+                                        <option value="true">Sign Language</option>
+                                        <option value="true">Afrikaans/English/Xhosa</option>
+                                        <option value="true">Dual: Afrikaans/English</option>
+                                        <option value="true">French</option>
+                                        <option value="true">German</option>
+                                        <option value="true">Par: Afrikaans/English</option>
+                                        <option value="true">Par: English/Sotho</option>
+                                        <option value="true">Par: English/Tswana</option>
+                                        <option value="true">Par: Xhosa/English</option>
+                                        <option value="true">Sign Language: English</option>
+                                        <option value="true">Spaak & Gebare Taal: Afrikaans</option>
+                                        <option value="true">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="CorrespondenceLanguage" class="form-label">Correspondence Language</label>
+                                    <select class="form-select" id="CorrespondenceLanguage">
+                                        <option value="true">Afrikaans</option>
+                                        <option value="true">English</option>
+                                        <option value="true">IsiNdebele</option>
+                                        <option value="true">Siswati</option>
+                                        <option value="true">IsiXhosa</option>
+                                        <option value="true">IsiZulu</option>
+                                        <option value="true">SeSotho</option>
+                                        <option value="true">SePedi</option>
+                                        <option value="true">SeTswana</option>
+                                        <option value="true">TshiVenda</option>
+                                        <option value="true">XiTsonga</option>
+                                        <option value="true">Sign Language</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="MultigradeClasses" class="form-label">Does your school have multigrade classes?</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="MultigradeClasses" id="doubleShiftsYes" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="MultigradeClasses" id="doubleShiftNo" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">No</label>
+                                      </div>
+                                </div>
+    
+                                <div class="col-md-4 mb-3">
+                                    <label for="MultigradeClassesNumber" class="form-label">Total number of multi-grade classes</label>
+                                    <input type="text" class="form-control" id="MultigradeClassesNumber" placeholder="Enter number of multi-grade classes">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="RemedialClassesNumber" class="form-label">Total remedial/aid classes at the school?</label>
+                                    <input type="text" class="form-control" id="RemedialClassesNumber" placeholder="Enter number of remedial or aid classes">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="SchoolOwnership" class="form-label">What is the Ownership of the School?</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="SchoolOwnership" id="SchoolOwnershipPublic" value="option1">
+                                        <label class="form-check-label" for="SchoolOwnershipPublic">Public School</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="SchoolOwnership" id="SchoolOwnershipIndependent" value="option2">
+                                        <label class="form-check-label" for="SchoolOwnershipIndependent">Independent School</label>
+                                      </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 
