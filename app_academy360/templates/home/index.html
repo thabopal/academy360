@@ -720,17 +720,57 @@ body {
                     <div class="tab-pane fade" id="step5" role="tabpanel">
                         <form id="sgbStatusForm">
                             <h5>SGB Status</h5>
-                            <div class="mb-3">
-                                <label for="sgbEstablished" class="form-label">Is the SGB Established?</label>
-                                <select class="form-select" id="sgbEstablished">
-                                    <option selected>Choose...</option>
-                                    <option value="yes">Yes</option>
-                                    <option value="no">No</option>
-                                </select>
+                            <div class="row">
+                                <div class="col-md-8 mb-3">
+                                    <label for="FocusedSchool" class="form-label">Please indicate the SGB status of the school</label>
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Section 21 Functions
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            No Section 21 Functions
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Not Applicable
+                                        </label>
+                                      </div>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="sgbMembers" class="form-label">Number of SGB Members</label>
-                                <input type="number" class="form-control" id="sgbMembers" placeholder="Enter number of SGB members">
+                            <div class="row">
+                                <div class="col-md-8 mb-3">
+                                    <label for="SchoolOwnership" class="form-label">Which of the following functions is the SGB allowed to perfom accodring to the Section 21 Status?</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="SchoolOwnership" id="SchoolOwnershipPublic" value="option1">
+                                        <label class="form-check-label" for="SchoolOwnershipPublic">Maintain and improve the school's property, and buildings and grounds occupied by the school, including school hostels</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="SchoolOwnership" id="SchoolOwnershipIndependent" value="option2">
+                                        <label class="form-check-label" for="SchoolOwnershipIndependent">Determine the extra-mural curriculum of the school and the choice of subject options in terms of provincial curriculum policy</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="SchoolOwnership" id="SchoolOwnershipIndependent" value="option2">
+                                        <label class="form-check-label" for="SchoolOwnershipIndependent">Purchase textbooks, eductional materials or equipment for the school</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="SchoolOwnership" id="SchoolOwnershipIndependent" value="option2">
+                                        <label class="form-check-label" for="SchoolOwnershipIndependent">Pay for services to the school</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="SchoolOwnership" id="SchoolOwnershipIndependent" value="option2">
+                                        <label class="form-check-label" for="SchoolOwnershipIndependent">Provide an adult based education and training class or centre subject to any applicable law</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="SchoolOwnership" id="SchoolOwnershipIndependent" value="option2">
+                                        <label class="form-check-label" for="SchoolOwnershipIndependent">Other functions consistent with the Schools Act and any applicable provincial law</label>
+                                      </div>
+                                 </div>
                             </div>
                         </form>
                     </div>
