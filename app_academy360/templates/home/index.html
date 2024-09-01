@@ -1,6 +1,192 @@
 {% extends "main_base.html" %}
 
 {% block content %}
+<style>
+    /* General Modal Styling */
+.modal-title {
+    color: #ffffff;
+    vertical-align: middle;
+}
+.modal-content {
+    background-color: #f9f9f9; /* Light gray background for the modal */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Modal Header */
+.modal-header {
+    background-color: #1f77b4; /* Professional deep blue */
+    color: #ffffff; /* White text */
+    border-bottom: 1px solid #e0e0e0; /* Light gray border */
+}
+
+/* Progress Bar Styling */
+.progress-bar {
+    background-color: #1f77b4; /* Match the header color for consistency */
+}
+
+/* Form Labels */
+/* Input Label Styling */
+.form-label {
+    color: #1f77b4; /* Use the primary color for the labels */
+    font-weight: 600; /* Make the labels bold */
+    font-size: 1rem; /* Slightly larger font size */
+    letter-spacing: 0.5px; /* Add a bit of letter spacing for readability */
+    margin-bottom: 5px; /* Add space below the label */
+    text-transform: uppercase; /* Make the text uppercase for a more formal look */
+}
+
+/* Optional: Add subtle underline to labels */
+.form-label::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #1f77b4; /* Same primary color as the text */
+    margin-top: 2px;
+    transition: width 0.3s ease;
+}
+
+/* On focus: Extend the underline for an interactive effect */
+.form-control:focus + .form-label::after {
+    width: 100%;
+}
+
+/* Input Styling to Match */
+.form-control  .form-select{
+    border-color: #cccccc; /* Light border color for inputs */
+    box-shadow: none; /* Remove default shadows */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.form-control:focus , .form-select:focus {
+    border-color: #1f77b4; /* Change border color to primary color on focus */
+    box-shadow: 0 0 5px rgba(31, 119, 180, 0.3); /* Add subtle shadow on focus */
+}
+
+/* Form Inputs */
+.form-control, .form-select {
+    border: 1px solid #d1d1d1; /* Light border for input fields */
+    border-radius: 4px; /* Slightly rounded corners */
+    padding: 10px; /* Adequate padding for readability */
+    font-size: 1rem; /* Consistent font size */
+    color: #555555; /* Medium gray text color */
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #1f77b4; /* Highlight border on focus */
+    box-shadow: 0 0 5px rgba(31, 119, 180, 0.5); /* Subtle blue glow on focus */
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #1f77b4; /* Consistent deep blue */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded button corners */
+    padding: 10px 20px; /* Adequate padding */
+    font-size: 1rem; /* Button text size */
+    color: #ffffff; /* White text */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.btn-primary:hover {
+    background-color: #145a8d; /* Slightly darker blue on hover */
+}
+
+/* Subtle Section Dividers */
+.form-section-divider {
+    margin: 20px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Spacing and Layout */
+.row {
+    margin-bottom: 15px; /* Space between rows */
+}
+
+.col-md-4 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Typography */
+body {
+    font-family: 'Open Sans', sans-serif; /* Consistent font across the app */
+    color: #333333; /* Dark gray text */
+}
+
+h5 {
+    font-weight: 600; /* Slightly bolder for section headings */
+    color: #1f77b4; /* Same deep blue as primary color */
+}
+
+/* Placeholder Text */
+::placeholder {
+    color: #888888; /* Light gray placeholder text */
+}
+
+/* Optional: Modal Overlay */
+.modal-backdrop.show {
+    background-color: rgba(0, 0, 0, 0.3); /* Darken background when modal is active */
+}
+
+/* Body and Background */
+body {
+    background: #f4f4f4; /* Light gray background */
+    font-family: 'Open Sans', sans-serif; /* Consistent font */
+}
+
+/* Sidebar Active Link */
+.sidebar .nav-link.active {
+    background-color: #1f77b4; /* Highlight active link */
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Card Styling */
+.card {
+    background-color: #ffffff; /* White background for cards */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: all 0.2s ease-in-out; /* Smooth transition */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+
+/* Icon and Text Styling */
+.card-icon {
+    color: #1f77b4; /* Primary color for icons */
+}
+
+.card-text {
+    color: #333333; /* Dark gray for text */
+    font-size: 1rem;
+    font-weight: 600; /* Bold text */
+}
+
+/* Header Area */
+.header {
+    background-color: #1f77b4;
+    color: #fff;
+    padding: 10px;
+    border-bottom: 2px solid #145a8d; /* Darker blue border */
+}
+
+/* Footer (Optional) */
+.footer {
+    background-color: #1f77b4;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+</style>
 <div class="container">
     <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
         <!-- Card 1: School Information -->
@@ -232,15 +418,15 @@
                     <div class="tab-pane fade show active" id="step2" role="tabpanel">
                         <h5>School Details Part 2</h5>
                         <div class="row">
-                            <div class="mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="NearestTown" class="form-label">NearestTown</label>
                                 <input type="number" class="form-control" id="NearestTown" placeholder="Enter nearest town">
                             </div>
-                            <div class="mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="DistanceToNearestTown" class="form-label">Distance to Nearest Town (km)</label>
                                 <input type="number" class="form-control" id="DistanceToNearestTown" placeholder="Enter distance to nearest town (km)">
                             </div>
-                            <div class="mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="ErfNumber" class="form-label">ERF Number</label>
                                 <input type="number" class="form-control" id="ErfNumber" placeholder="Enter ERF number">
                             </div>
@@ -264,8 +450,8 @@
                                 <label for="PrincipalContactNumber" class="form-label">Principal Contact Number</label>
                                 <input type="text" class="form-control" id="PrincipalContactNumber" placeholder="Enter principal contact number">
                             </div>
-                            <div class="mb-3">
-                                <label for="InternetAccess" class="form-label">Internet Access (Does the school have internet access?)</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="InternetAccess" class="form-label">Internet Access </label>
                                 <select class="form-select" id="InternetAccess">
                                     <option value="true">Yes</option>
                                     <option value="false">No</option>
@@ -279,10 +465,106 @@
                     </div>
                     <!-- Survey Details Part 1 Tab -->
                     <div class="tab-pane fade" id="step3" role="tabpanel">
-                        <form id="surveyDetails1Form">
-                            <h5>Survey Details Part 1</h5>
-                           
-                        </form>
+                        <h5>Survey Details Part 1</h5>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="PersalPayPointNumber" class="form-label">Persal Pay Point Number</label>
+                                <input type="number" class="form-control" id="PersalPayPointNumber" placeholder="Enter persal pay point number">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="PersalComponentNumber" class="form-label">Persal Component Number</label>
+                                <input type="number" class="form-control" id="PersalComponentNumber" placeholder="Enter persal component number">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="PersalComponentNumber" class="form-label">Does the school have double shifts?</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="SchoolDoubleShifts" id="doubleShiftsYes" value="option1">
+                                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="SchoolDoubleShifts" id="doubleShiftNo" value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">No</label>
+                                  </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="PersalComponentNumber" class="form-label">Does your school share facilities with another school?</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="SchoolPlatoon" id="SchoolPlatoonYes" value="option1">
+                                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="SchoolPlatoon" id="SchoolPlatoonNo" value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">No</label>
+                                  </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="HostSchoolName" class="form-label">If yes, provide the name of the host school</label>
+                                <input type="email" class="form-control" id="HostSchoolName" placeholder="Enter name of host school">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="HostSchoolEmis" class="form-label">Emis number of host the school</label>
+                                <input type="email" class="form-control" id="HostSchoolEmis" placeholder="Enter emis number of host school">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="PersalComponentNumber" class="form-label">When does your school use</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="SchoolPlatoon" id="SchoolPlatoonYes" value="option1">
+                                    <label class="form-check-label" for="inlineRadio1">Morning</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="SchoolPlatoon" id="SchoolPlatoonNo" value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">Afternoon</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="SchoolPlatoon" id="SchoolPlatoonNo" value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">At the same time</label>
+                                  </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="CurriculumOffered" class="form-label">Curriculum Offered</label>
+                                <select class="form-select" id="CurriculumOffered">
+                                    <option value="true">CAPS</option>
+                                    <option value="true">IEB & CAPS</option>
+                                    <option value="true">Cambridge</option>
+                                    <option value="true">ACE</option>
+                                    <option value="true"> Montessori</option>
+                                    <option value="true">IBO</option>
+                                    <option value="true">GED</option>
+                                    <option value="true">Waldorf</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="ExaminationBoard" class="form-label">Examination Board</label>
+                                <select class="form-select" id="ExaminationBoard">
+                                    <option value="true">DBE</option>
+                                    <option value="true">IEB</option>
+                                    <option value="true">SACAI</option>
+                                    <option value="true">IB</option>
+                                    <option value="true"> AGED</option>
+                                    <option value="true">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+                                <label for="ExaminationCentreName" class="form-label">Name of Examination Centre</label>
+                                <input type="text" class="form-control" id="ExaminationCentreName" placeholder="Enter name of examination centre">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="NSCRegNumber" class="form-label">NSC Centre Registration Number</label>
+                                <input type="text" class="form-control" id="NSCRegNumber" placeholder="Enter NSC centre registration number">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="ExaminationBoard" class="form-label">National School Nutrition Programme</label>
+                                <select class="form-select" id="ExaminationBoard">
+                                    <option value="true">Not Applicable</option>
+                                    <option value="true">Yes</option>
+                                    <option value="true">No</option>
+                                    <option value="true">Partial</option>
+                                    <option value="true"> Other</option>
+                                </select>
+                            </div>
+                        </div>
+                       
                     </div>
                 
                     <!-- Survey Details Part 2 Tab -->
