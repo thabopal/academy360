@@ -21,9 +21,9 @@ services:
     ports:
       - "8001:8001"
     depends_on:
-      - db  
+      - vkwokco40oo004skkgo8w0w8  
     environment:
-      DATABASE_URL: postgres://postgres:ov3E79fqnN0AtV20r0DIALYM2XvwwGYwWqdj5iIrYhJ5c6Kgi3mdzDK5Sp2qDvIP@db:5432/DB_Academy360
+      DATABASE_URL: postgres://postgres:ov3E79fqnN0AtV20r0DIALYM2XvwwGYwWqdj5iIrYhJ5c6Kgi3mdzDK5Sp2qDvIP@vkwokco40oo004skkgo8w0w8:5432/DB_Academy360
       ALLOWED_HOSTS: "*"
       DEBUG: "1"  # Enable this for development; remove for production
 
