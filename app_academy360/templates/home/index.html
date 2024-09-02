@@ -573,10 +573,15 @@ body {
                             <h5>Survey Details Part 2</h5>
                             <div class="row">
                                 <div class="col-md-4 mb-3">
-                                    <label for="SchoolLevel" class="form-label">School Level</label>
-                                    <input type="text" class="form-control" id="SchoolLevel" placeholder="Enter school level">
+                                    <label for="SchoolLevel" class="form-label">Provincial Department</label>
+                                    <select class="form-select" aria-label="Default select example" id="SchoolLevel">
+                                        <option selected>Select school level</option>
+                                        <option>Pre-Primary</option>
+                                        <option>Primary</option>
+                                        <option>Intermediate</option>
+                                        <option>Combined</option>
+                                    </select>
                                 </div>
-                                
                                 <div class="col-md-4 mb-3">
                                     <label for="LandOwnershp" class="form-label">Ownership of Land</label>
                                     <select class="form-select" id="LandOwnershp">
@@ -782,43 +787,43 @@ body {
                             <h6>Please complete these details if the school has a twinning relationship with another school:</h6>
                             <div class="row">
                                 <div class="col-md-4 mb-3">
-                                    <label for="PersalPayPointNumber" class="form-label">Name of School</label>
-                                    <input type="number" class="form-control" id="PersalPayPointNumber" placeholder="Enter persal pay point number">
+                                    <label for="TwinningSchoolName" class="form-label">Name of School</label>
+                                    <input type="number" class="form-control" id="TwinningSchoolName" placeholder="Enter persal pay point number">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label for="PersalComponentNumber" class="form-label">Emis Number</label>
-                                    <input type="number" class="form-control" id="PersalComponentNumber" placeholder="Enter persal component number">
+                                    <label for="TwinningSchoolEmisNumber" class="form-label">Emis Number</label>
+                                    <input type="number" class="form-control" id="TwinningSchoolEmisNumber" placeholder="Enter persal component number">
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <div class="mb-3">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Address</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        <label for="TwinningSchoolAddress" class="form-label">Address</label>
+                                        <textarea class="form-control" id="TwinningSchoolAddress" rows="3"></textarea>
                                     </div>
                                 </div>
                                 
                                 <div class="col-md-4 mb-3">
-                                    <label for="HostSchoolEmis" class="form-label">City/Suburb</label>
-                                    <input type="email" class="form-control" id="HostSchoolEmis" placeholder="Enter emis number of host school">
+                                    <label for="TwinningSchoolCity_Suburb" class="form-label">City/Suburb</label>
+                                    <input type="textt" class="form-control" id="TwinningSchoolCity_Suburb" placeholder="Enter emis number of host school">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label for="ExaminationCentreName" class="form-label">Postal Code</label>
-                                    <input type="text" class="form-control" id="ExaminationCentreName" placeholder="Enter postal code">
+                                    <label for="TwinningSchoolPostalCode" class="form-label">Postal Code</label>
+                                    <input type="text" class="form-control" id="TwinningSchoolPostalCode" placeholder="Enter postal code">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label for="NSCRegNumber" class="form-label">Telephone Number</label>
-                                    <input type="text" class="form-control" id="NSCRegNumber" placeholder="Enter telephone number">
+                                    <label for="TwinningSchoolTelephoneNumber" class="form-label">Telephone Number</label>
+                                    <input type="number" class="form-control" id="NSCRegNumber" placeholder="Enter telephone number">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label for="NSCRegNumber" class="form-label">Fax Number</label>
-                                    <input type="text" class="form-control" id="NSCRegNumber" placeholder="Enter fax number">
+                                    <label for="TwinningSchoolFaxNumber" class="form-label">Fax Number</label>
+                                    <input type="nujmber" class="form-control" id="TwinningSchoolFaxNumber" placeholder="Enter fax number">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label for="NSCRegNumber" class="form-label">Principal</label>
-                                    <input type="text" class="form-control" id="NSCRegNumber" placeholder="Enter principal full names">
+                                    <label for="TwinningSchoolPrincipal" class="form-label">Principal</label>
+                                    <input type="text" class="form-control" id="TwinningSchoolPrincipal" placeholder="Enter principal full names">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label for="NSCRegNumber" class="form-label">Contact Person</label>
-                                    <input type="text" class="form-control" id="NSCRegNumber" placeholder="Enter contact person number">
+                                    <label for="TwinningSchoolContactPersonNumber" class="form-label">Contact Person</label>
+                                    <input type="number" class="form-control" id="TwinningSchoolContactPersonNumber" placeholder="Enter contact person number">
                                 </div>
                             </div>
                            
@@ -1900,7 +1905,143 @@ body {
 
 
 <script>
+    
 <!-- JavaScript for Wizard Navigation -->
+function validateTab(step) {
+    let isValid = true;
+
+    // Reset previous validation highlights
+    document.querySelectorAll('.is-invalid').forEach(element => {
+        element.classList.remove('is-invalid');
+    });
+
+    if (step === 1) {
+        const officialSchoolName = document.getElementById('OfficialSchoolName');
+        const emisNumber = document.getElementById('EMISNumber');
+        if (!officialSchoolName.value.trim()) {
+            isValid = false;
+            officialSchoolName.classList.add('is-invalid');
+        }
+        if (!emisNumber.value.trim()) {
+            isValid = false;
+            emisNumber.classList.add('is-invalid');
+        }
+    } else if (step === 2) {
+        const persalPayPointNumber = document.getElementById('PersalPayPointNumber');
+        const schoolShift = document.querySelector('input[name="SchoolDoubleShifts"]:checked');
+        if (!persalPayPointNumber.value.trim()) {
+            isValid = false;
+            persalPayPointNumber.classList.add('is-invalid');
+        }
+        if (!schoolShift) {
+            isValid = false;
+            document.querySelector('input[name="SchoolDoubleShifts"]').closest('.form-check-inline').classList.add('is-invalid');
+        }
+    } else if (step === 3) {
+        const nationalSchoolNutrition = document.getElementById('ExaminationBoard');
+        if (!nationalSchoolNutrition.value.trim()) {
+            isValid = false;
+            nationalSchoolNutrition.classList.add('is-invalid');
+        }
+    } else if (step === 4) {
+        const schoolLevel = document.getElementById('SchoolLevel');
+        if (!schoolLevel.value.trim()) {
+            isValid = false;
+            schoolLevel.classList.add('is-invalid');
+        }
+    }
+
+    return isValid;
+}
+
+document.getElementById('nextBtn').addEventListener('click', function () {
+    let currentStep = parseInt(document.getElementById('stepLabel').textContent.split(' ')[1]);
+
+    if (validateTab(currentStep)) {
+        // Only navigate to the next tab if validation is successful
+        $(`#step${currentStep}`).removeClass('show active');
+        $(`#step${currentStep + 1}`).addClass('show active');
+
+        // Update progress bar and step label
+        document.getElementById('progressBar').style.width = `${(currentStep) * 20}%`;
+        document.getElementById('stepLabel').textContent = `Step ${currentStep + 1} of 5`;
+
+        // Show or hide the save button
+        if (currentStep + 1 === 5) {
+            document.getElementById('nextBtn').classList.add('d-none');
+            document.getElementById('saveSubmitBtn').classList.remove('d-none');
+        } else {
+            document.getElementById('nextBtn').classList.remove('d-none');
+            document.getElementById('saveSubmitBtn').classList.add('d-none');
+        }
+
+        document.getElementById('prevBtn').classList.remove('d-none');
+    } else {
+        // If validation fails, stay on the current tab and focus on the first invalid input
+        document.querySelector('.is-invalid').focus();
+    }
+});
+
+
+// document.getElementById('nextBtn').addEventListener('click', function () {
+//     let currentStep = parseInt(document.getElementById('stepLabel').textContent.split(' ')[1]);
+
+//     if (validateTab(currentStep)) {
+//         // Code to go to the next step
+//         // Assuming Bootstrap tabs, you can trigger the next tab here
+//         $(`#step${currentStep}`).removeClass('show active');
+//         $(`#step${currentStep + 1}`).addClass('show active');
+
+//         // Update progress bar and step label
+//         document.getElementById('progressBar').style.width = `${(currentStep) * 20}%`;
+//         document.getElementById('stepLabel').textContent = `Step ${currentStep + 1} of 5`;
+
+//         // Show or hide the save button
+//         if (currentStep + 1 === 5) {
+//             document.getElementById('nextBtn').classList.add('d-none');
+//             document.getElementById('saveSubmitBtn').classList.remove('d-none');
+//         } else {
+//             document.getElementById('nextBtn').classList.remove('d-none');
+//             document.getElementById('saveSubmitBtn').classList.add('d-none');
+//         }
+
+//         document.getElementById('prevBtn').classList.remove('d-none');
+//     } else {
+//         // Focus on the first invalid input for better user experience
+//         document.querySelector('.is-invalid').focus();
+//     }
+// });
+document.getElementById('nextBtn').addEventListener('click', function () {
+    let currentStep = parseInt(document.getElementById('stepLabel').textContent.split(' ')[1]);
+
+    // Validate the current tab
+    if (validateTab(currentStep)) {
+        // Code to go to the next step
+        // Assuming Bootstrap tabs, you can trigger the next tab here
+        $(`#step${currentStep}`).removeClass('show active');
+        $(`#step${currentStep + 1}`).addClass('show active');
+
+        // Update progress bar and step label
+        document.getElementById('progressBar').style.width = `${(currentStep) * 20}%`;
+        document.getElementById('stepLabel').textContent = `Step ${currentStep + 1} of 5`;
+
+        // Show or hide the save button
+        if (currentStep + 1 === 5) {
+            document.getElementById('nextBtn').classList.add('d-none');
+            document.getElementById('saveSubmitBtn').classList.remove('d-none');
+        } else {
+            document.getElementById('nextBtn').classList.remove('d-none');
+            document.getElementById('saveSubmitBtn').classList.add('d-none');
+        }
+
+        // Show the previous button
+        document.getElementById('prevBtn').classList.remove('d-none');
+    } else {
+        // If validation fails, focus on the first invalid input
+        document.querySelector('.is-invalid').focus();
+    }
+});
+
 
 document.addEventListener('DOMContentLoaded', function() {
     let currentStep = 0;
