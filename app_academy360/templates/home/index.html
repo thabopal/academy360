@@ -1906,7 +1906,7 @@ body {
 
 <script>
     
-<!-- JavaScript for Wizard Navigation -->
+// JavaScript for Wizard Navigation 
 function validateTab(step) {
     let isValid = true;
 
@@ -1929,25 +1929,13 @@ function validateTab(step) {
     } else if (step === 2) {
         const persalPayPointNumber = document.getElementById('PersalPayPointNumber');
         const schoolShift = document.querySelector('input[name="SchoolDoubleShifts"]:checked');
-        if (!persalPayPointNumber.value.trim()) {
+        if (!persalPayPointNumber || !persalPayPointNumber.value.trim()) {
             isValid = false;
             persalPayPointNumber.classList.add('is-invalid');
         }
         if (!schoolShift) {
             isValid = false;
             document.querySelector('input[name="SchoolDoubleShifts"]').closest('.form-check-inline').classList.add('is-invalid');
-        }
-    } else if (step === 3) {
-        const nationalSchoolNutrition = document.getElementById('ExaminationBoard');
-        if (!nationalSchoolNutrition.value.trim()) {
-            isValid = false;
-            nationalSchoolNutrition.classList.add('is-invalid');
-        }
-    } else if (step === 4) {
-        const schoolLevel = document.getElementById('SchoolLevel');
-        if (!schoolLevel.value.trim()) {
-            isValid = false;
-            schoolLevel.classList.add('is-invalid');
         }
     }
 
@@ -1957,90 +1945,26 @@ function validateTab(step) {
 document.getElementById('nextBtn').addEventListener('click', function () {
     let currentStep = parseInt(document.getElementById('stepLabel').textContent.split(' ')[1]);
 
-    if (validateTab(currentStep)) {
-        // Only navigate to the next tab if validation is successful
-        $(`#step${currentStep}`).removeClass('show active');
-        $(`#step${currentStep + 1}`).addClass('show active');
+    // Navigate to the next tab
+    $(`#step${currentStep}`).removeClass('show active');
+    $(`#step${currentStep + 1}`).addClass('show active');
 
-        // Update progress bar and step label
-        document.getElementById('progressBar').style.width = `${(currentStep) * 20}%`;
-        document.getElementById('stepLabel').textContent = `Step ${currentStep + 1} of 5`;
+    // Update progress bar and step label
+    document.getElementById('progressBar').style.width = `${(currentStep) * 20}%`;
+    document.getElementById('stepLabel').textContent = `Step ${currentStep + 1} of 5`;
 
-        // Show or hide the save button
-        if (currentStep + 1 === 5) {
-            document.getElementById('nextBtn').classList.add('d-none');
-            document.getElementById('saveSubmitBtn').classList.remove('d-none');
-        } else {
-            document.getElementById('nextBtn').classList.remove('d-none');
-            document.getElementById('saveSubmitBtn').classList.add('d-none');
-        }
-
-        document.getElementById('prevBtn').classList.remove('d-none');
+    // Show or hide the save button
+    if (currentStep + 1 === 5) {
+        document.getElementById('nextBtn').classList.add('d-none');
+        document.getElementById('saveSubmitBtn').classList.remove('d-none');
     } else {
-        // If validation fails, stay on the current tab and focus on the first invalid input
-        document.querySelector('.is-invalid').focus();
+        document.getElementById('nextBtn').classList.remove('d-none');
+        document.getElementById('saveSubmitBtn').classList.add('d-none');
     }
+
+    document.getElementById('prevBtn').classList.remove('d-none');
 });
 
-
-// document.getElementById('nextBtn').addEventListener('click', function () {
-//     let currentStep = parseInt(document.getElementById('stepLabel').textContent.split(' ')[1]);
-
-//     if (validateTab(currentStep)) {
-//         // Code to go to the next step
-//         // Assuming Bootstrap tabs, you can trigger the next tab here
-//         $(`#step${currentStep}`).removeClass('show active');
-//         $(`#step${currentStep + 1}`).addClass('show active');
-
-//         // Update progress bar and step label
-//         document.getElementById('progressBar').style.width = `${(currentStep) * 20}%`;
-//         document.getElementById('stepLabel').textContent = `Step ${currentStep + 1} of 5`;
-
-//         // Show or hide the save button
-//         if (currentStep + 1 === 5) {
-//             document.getElementById('nextBtn').classList.add('d-none');
-//             document.getElementById('saveSubmitBtn').classList.remove('d-none');
-//         } else {
-//             document.getElementById('nextBtn').classList.remove('d-none');
-//             document.getElementById('saveSubmitBtn').classList.add('d-none');
-//         }
-
-//         document.getElementById('prevBtn').classList.remove('d-none');
-//     } else {
-//         // Focus on the first invalid input for better user experience
-//         document.querySelector('.is-invalid').focus();
-//     }
-// });
-document.getElementById('nextBtn').addEventListener('click', function () {
-    let currentStep = parseInt(document.getElementById('stepLabel').textContent.split(' ')[1]);
-
-    // Validate the current tab
-    if (validateTab(currentStep)) {
-        // Code to go to the next step
-        // Assuming Bootstrap tabs, you can trigger the next tab here
-        $(`#step${currentStep}`).removeClass('show active');
-        $(`#step${currentStep + 1}`).addClass('show active');
-
-        // Update progress bar and step label
-        document.getElementById('progressBar').style.width = `${(currentStep) * 20}%`;
-        document.getElementById('stepLabel').textContent = `Step ${currentStep + 1} of 5`;
-
-        // Show or hide the save button
-        if (currentStep + 1 === 5) {
-            document.getElementById('nextBtn').classList.add('d-none');
-            document.getElementById('saveSubmitBtn').classList.remove('d-none');
-        } else {
-            document.getElementById('nextBtn').classList.remove('d-none');
-            document.getElementById('saveSubmitBtn').classList.add('d-none');
-        }
-
-        // Show the previous button
-        document.getElementById('prevBtn').classList.remove('d-none');
-    } else {
-        // If validation fails, focus on the first invalid input
-        document.querySelector('.is-invalid').focus();
-    }
-});
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -2197,7 +2121,7 @@ function printExtraCurricularList() {
 // Function to view details of a selected extra-curricular (placeholder)
 function viewExtraCurricularDetails(id) {
     // Implement view logic (e.g., show details in a new modal)
-    alert(`View details for extra-curricular ID: ${id}`);
+    alert('View details for extra-curricular ID: ' + id);
 }
 
 // Function to save terms
