@@ -5,7 +5,7 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Install Netcat and other dependencies
-RUN apk add --no-cache netcat
+RUN apt-get update && apt-get install -y netcat
 
 # Copy the current directory contents into the container at /app
 COPY . /app
