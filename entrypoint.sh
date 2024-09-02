@@ -1,7 +1,7 @@
 #!/bin/sh
 # Wait for PostgreSQL to be available
 echo "Waiting for PostgreSQL to be available..."
-while ! nc -z db 5432; do
+while ! nc -z vkwokco40oo004skkgo8w0w8 5432; do
   sleep 0.1
 done
 echo "PostgreSQL is up and running."
