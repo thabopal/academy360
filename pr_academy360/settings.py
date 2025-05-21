@@ -21,10 +21,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-yvw08x6sry3!pg0)55)rgfzl5w-@8dmt-s@#0a=k=)d&!bvj^o'
+# Attempt to load SECRET_KEY from environment variable, fallback to hardcoded key for development only.
+# DO NOT USE THIS FALLBACK IN PRODUCTION.
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-yvw08x6sry3!pg0)55)rgfzl5w-@8dmt-s@#0a=k=)d&!bvj^o')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Load DEBUG setting from environment variable, defaulting to False.
+# Set DJANGO_DEBUG to 'True' for development and 'False' for production.
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['localhost','academy360.co.za']
 
@@ -94,11 +98,13 @@ WSGI_APPLICATION = 'pr_academy360.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'DB_Academy360',  # Replace with your PostgreSQL database name
-        'USER': 'postgres',  # Replace with your PostgreSQL username
-        'PASSWORD': 'ov3E79fqnN0AtV20r0DIALYM2XvwwGYwWqdj5iIrYhJ5c6Kgi3mdzDK5Sp2qDvIP',  # Replace with your PostgreSQL password
-        'HOST': 'vkwokco40oo004skkgo8w0w8',  # Typically 'localhost' or the IP of your PostgreSQL server
-        'PORT': '5432',  # Usually 5432 for PostgreSQL
+        # Load database credentials from environment variables.
+        # Fallbacks are for development convenience ONLY. DO NOT USE IN PRODUCTION.
+        'NAME': os.environ.get('DB_NAME', 'DB_Academy360'),  # Replace with your PostgreSQL database name
+        'USER': os.environ.get('DB_USER', 'postgres'),  # Replace with your PostgreSQL username
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'ov3E79fqnN0AtV20r0DIALYM2XvwwGYwWqdj5iIrYhJ5c6Kgi3mdzDK5Sp2qDvIP'),  # Replace with your PostgreSQL password
+        'HOST': os.environ.get('DB_HOST', 'vkwokco40oo004skkgo8w0w8'),  # Typically 'localhost' or the IP of your PostgreSQL server
+        'PORT': os.environ.get('DB_PORT', '5432'),  # Usually 5432 for PostgreSQL
     }
 }
 #postgres://root:Monday@01@102.211.204.58:5432/DB_Academy360
